@@ -1,11 +1,20 @@
-public class Main {public static void main(String[] args) {
-    System.out.println("Hello and welcome!");
+import javax.swing.*;
 
-    //TODO: what the fuck
-    for (int i = 1; i <= 5; i++) {
-        System.out.println("i = " + i);
-        //tite
-        }
+public class Main extends JFrame {
+
+    private JTextArea gintuanNiLemonTextArea;
+    private JPanel panel1;
+    private JTextField userNameField;
+    private JLabel passText;
+    private JTextField passField;
+    private JButton btn1;
+
+    public static void main(String[] args) {
+
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }
 
