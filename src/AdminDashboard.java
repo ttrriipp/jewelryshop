@@ -73,9 +73,10 @@ public class AdminDashboard extends JFrame {
 		panel.add(btnProduct);
 		btnProduct.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AdminProduct admProd = new AdminProduct();
-				admProd.setVisible(true);
 				dispose();
+				AdminProduct adminProduct = new AdminProduct();
+				adminProduct.setVisible(true);
+
 			}
 		});
 		
@@ -104,9 +105,10 @@ public class AdminDashboard extends JFrame {
 		JButton btnNewButton = new JButton("Logout");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AdminCredentials adminCredentials = new AdminCredentials();
-				LoginPage login = new LoginPage(adminCredentials.getLoginInfo());
 				dispose();
+				AdminCredentials adminCredentials = new AdminCredentials();
+				LoginPage loginPage = new LoginPage(adminCredentials.getLoginInfo());
+				loginPage.setVisible(true);
 			}
 		});
 		btnNewButton.setForeground(new Color(255, 255, 255));
@@ -116,6 +118,5 @@ public class AdminDashboard extends JFrame {
 		contentPane.add(btnNewButton);
 
 		setLocationRelativeTo(null);
-		setVisible(true);
 	}
 }

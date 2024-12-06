@@ -62,8 +62,9 @@ public class AdminProduct extends JFrame {
 		JButton btnDashboard = new JButton("Dash\r\nBoard");
 		btnDashboard.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AdminDashboard admDash = new AdminDashboard();
 				dispose();
+				AdminDashboard adminDashboard = new AdminDashboard();
+				adminDashboard.setVisible(true);
 			}
 		});
 		btnDashboard.setBounds(10, 27, 85, 35);
@@ -114,6 +115,5 @@ public class AdminProduct extends JFrame {
 		contentPane.add(btnSubmit);
 
 		setLocationRelativeTo(null);
-		setVisible(true);
 	}
 }

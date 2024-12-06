@@ -16,12 +16,12 @@ public class LoginPage extends JFrame{
 	/**
 	 * Launch the application.
 	 */
-	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LoginPage frame = new LoginPage();
+					AdminCredentials adminCredentials = new AdminCredentials();
+					LoginPage frame = new LoginPage(adminCredentials.getLoginInfo());
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -29,7 +29,6 @@ public class LoginPage extends JFrame{
 			}
 		});
 	}
-	*/
 
 	HashMap<String, String> loginInfo = new HashMap<String, String>();
 	/**
@@ -97,12 +96,11 @@ public class LoginPage extends JFrame{
 				if(loginInfo.containsKey(username)){
 
 					if(loginInfo.get(username).equals(password)) {
-						AdminDashboard adminDashboard = new AdminDashboard();
 						dispose();
-					} else {
+						AdminDashboard adminDashboard = new AdminDashboard();
+						adminDashboard.setVisible(true);
+					} else
 						JOptionPane.showMessageDialog(null, "Wrong Password!", "Wrong Password", JOptionPane.ERROR_MESSAGE);
-					}
-
 				} else if (!username.isEmpty() & !loginInfo.containsKey(username) & !password.isEmpty()){
 					JOptionPane.showMessageDialog(null, "Wrong Username!", "Wrong Username", JOptionPane.ERROR_MESSAGE);
 				}
@@ -134,6 +132,5 @@ public class LoginPage extends JFrame{
 		contentPane.add(passwordField);
 
 		setLocationRelativeTo(null);
-		setVisible(true);
 	}
 }

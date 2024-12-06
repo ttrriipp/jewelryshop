@@ -14,6 +14,7 @@ public class Main extends JFrame {
         AdminCredentials adminCredentials = new AdminCredentials();
 
         LoginPage loginPage = new LoginPage(adminCredentials.getLoginInfo());
+        loginPage.setVisible(true);
     }
 
     private void createUIComponents() {
