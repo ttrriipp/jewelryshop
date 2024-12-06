@@ -118,5 +118,6 @@ public class AdminDashboard extends JFrame {
 		contentPane.add(btnNewButton);
 
 		setLocationRelativeTo(null);
+		setResizable(false);
 	}
 }

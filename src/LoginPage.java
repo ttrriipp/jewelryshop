@@ -104,7 +104,6 @@ public class LoginPage extends JFrame{
 				} else if (!username.isEmpty() & !loginInfo.containsKey(username) & !password.isEmpty()){
 					JOptionPane.showMessageDialog(null, "Wrong Username!", "Wrong Username", JOptionPane.ERROR_MESSAGE);
 				}
-
 				if(username.isEmpty())
 					JOptionPane.showMessageDialog(null, "Please input login credentials!!!!!!!!", "Walang nakalagay", JOptionPane.ERROR_MESSAGE);
 				else if (password.isEmpty())
@@ -132,5 +131,6 @@ public class LoginPage extends JFrame{
 		contentPane.add(passwordField);
 
 		setLocationRelativeTo(null);
+		setResizable(false);
 	}
 }

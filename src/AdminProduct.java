@@ -115,5 +115,6 @@ public class AdminProduct extends JFrame {
 		contentPane.add(btnSubmit);
 
 		setLocationRelativeTo(null);
+		setResizable(false);
 	}
 }
