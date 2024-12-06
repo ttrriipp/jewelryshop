@@ -61,7 +61,7 @@ public class Admin_Dashboard extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 204, 153));
+		panel.setBackground(new Color(255, 153, 102));
 		panel.setBounds(0, 0, 108, 389);
 		contentPane.add(panel);
 		panel.setLayout(null);
@@ -102,5 +102,17 @@ public class Admin_Dashboard extends JFrame {
 		textField_1.setBounds(134, 112, 171, 26);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Logout");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LoginUI login = new LoginUI();
+				login.setVisible(true);			}
+		});
+		btnNewButton.setForeground(new Color(255, 255, 255));
+		btnNewButton.setBackground(new Color(255, 51, 51));
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnNewButton.setBounds(366, 320, 149, 50);
+		contentPane.add(btnNewButton);
 	}
 }

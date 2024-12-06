@@ -54,7 +54,7 @@ public class Admin_Product extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 204, 153));
+		panel.setBackground(new Color(255, 153, 102));
 		panel.setBounds(0, 0, 108, 389);
 		contentPane.add(panel);
 		panel.setLayout(null);
