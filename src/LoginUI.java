@@ -1,5 +1,3 @@
-package loginUI;
-
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
