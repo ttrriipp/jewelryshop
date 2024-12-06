@@ -21,6 +21,8 @@ public class Admin_Dashboard extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -51,7 +53,7 @@ public class Admin_Dashboard extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Product Details");
+		JLabel lblNewLabel = new JLabel("Admin Dashboard");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Sylfaen", Font.BOLD, 16));
 		lblNewLabel.setBounds(90, 6, 179, 31);
@@ -67,5 +69,27 @@ public class Admin_Dashboard extends JFrame {
 		
 		JButton btnProduct = new JButton("Product");
 		panel.add(btnProduct);
+		
+		JLabel lblNewLabel_1 = new JLabel("Employee");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1.setBounds(134, 48, 122, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		textField = new JTextField();
+		textField.setEditable(false);
+		textField.setBounds(134, 63, 171, 26);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("Password");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_2.setBounds(135, 96, 79, 14);
+		contentPane.add(lblNewLabel_2);
+		
+		textField_1 = new JTextField();
+		textField_1.setEditable(false);
+		textField_1.setBounds(134, 112, 171, 26);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
 	}
 }
