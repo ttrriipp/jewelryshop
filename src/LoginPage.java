@@ -99,7 +99,7 @@ public class LoginPage extends JFrame{
 						dispose();
 						AdminDashboard adminDashboard = new AdminDashboard();
 						adminDashboard.setVisible(true);
-					} else
+					} else if (!password.isEmpty() & !loginInfo.get(username).equals(password))
 						JOptionPane.showMessageDialog(null, "Wrong Password!", "Wrong Password", JOptionPane.ERROR_MESSAGE);
 				} else if (!username.isEmpty() & !loginInfo.containsKey(username) & !password.isEmpty()){
 					JOptionPane.showMessageDialog(null, "Wrong Username!", "Wrong Username", JOptionPane.ERROR_MESSAGE);

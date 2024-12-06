@@ -12,7 +12,6 @@ public class Main extends JFrame {
     public static void main(String[] args) {
 
         AdminCredentials adminCredentials = new AdminCredentials();
-
         LoginPage loginPage = new LoginPage(adminCredentials.getLoginInfo());
         loginPage.setVisible(true);
     }
