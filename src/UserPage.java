@@ -203,9 +203,12 @@ public class UserPage extends JFrame {
 		
 		JButton lblNewLabel_5 = new JButton("");
 		lblNewLabel_5.setBackground(new Color(255, 153, 102));
-		lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\admin\\git\\jewelryshop-nw2d-ctcc0513\\img\\cart.png"));
+		lblNewLabel_5.setIcon(new ImageIcon("img/cart.png"));
 		lblNewLabel_5.setBounds(546, 11, 30, 30);
 		contentPane.add(lblNewLabel_5);
+
+		setLocationRelativeTo(null);
+		setVisible(true);
 	}
 
 }

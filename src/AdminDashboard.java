@@ -3,21 +3,17 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.FlowLayout;
-import javax.swing.JSplitPane;
-import javax.swing.JToolBar;
-import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.JEditorPane;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.HashMap;
 
-public class Admin_Dashboard extends JFrame {
+public class AdminDashboard extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -32,7 +28,7 @@ public class Admin_Dashboard extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Admin_Dashboard frame = new Admin_Dashboard();
+					AdminDashboard frame = new AdminDashboard();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,10 +37,11 @@ public class Admin_Dashboard extends JFrame {
 		});
 	}
 
+	HashMap<String, String> loginInfo = new HashMap<String, String>();
 	/**
 	 * Create the frame.
 	 */
-	public Admin_Dashboard() {
+	public AdminDashboard() {
 		setTitle("Admin Dashboard");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 555, 420);
@@ -68,6 +65,7 @@ public class Admin_Dashboard extends JFrame {
 		
 		JButton btnDashboard = new JButton("Dash\r\nBoard");
 		btnDashboard.setBounds(10, 27, 85, 35);
+		btnDashboard.setFocusable(false);
 		panel.add(btnDashboard);
 		
 		JButton btnProduct = new JButton("Product");
@@ -75,11 +73,11 @@ public class Admin_Dashboard extends JFrame {
 		panel.add(btnProduct);
 		btnProduct.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Admin_Product admProd = new Admin_Product();
+				AdminProduct admProd = new AdminProduct();
 				admProd.setVisible(true);
+				dispose();
 			}
 		});
-		panel.add(btnProduct);
 		
 		JLabel lblNewLabel_1 = new JLabel("Employee");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -106,13 +104,18 @@ public class Admin_Dashboard extends JFrame {
 		JButton btnNewButton = new JButton("Logout");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LoginUI login = new LoginUI();
-				login.setVisible(true);			}
+				AdminCredentials adminCredentials = new AdminCredentials();
+				LoginPage login = new LoginPage(adminCredentials.getLoginInfo());
+				dispose();
+			}
 		});
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setBackground(new Color(255, 51, 51));
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnNewButton.setBounds(366, 320, 149, 50);
 		contentPane.add(btnNewButton);
+
+		setLocationRelativeTo(null);
+		setVisible(true);
 	}
 }

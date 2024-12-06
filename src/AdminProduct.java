@@ -13,7 +13,7 @@ import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Admin_Product extends JFrame {
+public class AdminProduct extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -25,7 +25,7 @@ public class Admin_Product extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Admin_Product frame = new Admin_Product();
+					AdminProduct frame = new AdminProduct();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +37,7 @@ public class Admin_Product extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Admin_Product() {
+	public AdminProduct() {
 		setTitle("Admin Dashboard");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 555, 420);
@@ -62,8 +62,8 @@ public class Admin_Product extends JFrame {
 		JButton btnDashboard = new JButton("Dash\r\nBoard");
 		btnDashboard.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Admin_Dashboard admDash = new Admin_Dashboard();
-				admDash.setVisible(true);
+				AdminDashboard admDash = new AdminDashboard();
+				dispose();
 			}
 		});
 		btnDashboard.setBounds(10, 27, 85, 35);
@@ -112,5 +112,8 @@ public class Admin_Product extends JFrame {
 		btnSubmit.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		btnSubmit.setBounds(437, 97, 94, 40);
 		contentPane.add(btnSubmit);
+
+		setLocationRelativeTo(null);
+		setVisible(true);
 	}
 }

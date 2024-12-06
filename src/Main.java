@@ -11,7 +11,9 @@ public class Main extends JFrame {
 
     public static void main(String[] args) {
 
-        LoginUI loginUI = new LoginUI();
+        AdminCredentials adminCredentials = new AdminCredentials();
+
+        LoginPage loginPage = new LoginPage(adminCredentials.getLoginInfo());
     }
 
     private void createUIComponents() {
