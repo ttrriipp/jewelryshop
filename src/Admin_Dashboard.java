@@ -14,6 +14,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Admin_Dashboard extends JFrame {
 
@@ -21,6 +23,7 @@ public class Admin_Dashboard extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	private JFrame frame;
 
 	/**
 	 * Launch the application.
@@ -44,7 +47,7 @@ public class Admin_Dashboard extends JFrame {
 	public Admin_Dashboard() {
 		setTitle("Admin Dashboard");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 522, 354);
+		setBounds(100, 100, 555, 420);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -59,13 +62,23 @@ public class Admin_Dashboard extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 204, 153));
-		panel.setBounds(0, 0, 108, 315);
+		panel.setBounds(0, 0, 108, 389);
 		contentPane.add(panel);
+		panel.setLayout(null);
 		
-		JButton btnDashboard = new JButton("DashBoard");
+		JButton btnDashboard = new JButton("Dash\r\nBoard");
+		btnDashboard.setBounds(10, 27, 85, 35);
 		panel.add(btnDashboard);
 		
 		JButton btnProduct = new JButton("Product");
+		btnProduct.setBounds(11, 73, 84, 35);
+		panel.add(btnProduct);
+		btnProduct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Admin_Product admProd = new Admin_Product();
+				admProd.setVisible(true);
+			}
+		});
 		panel.add(btnProduct);
 		
 		JLabel lblNewLabel_1 = new JLabel("Employee");
