@@ -36,6 +36,7 @@ public class ProductDetails extends JFrame {
 	 * Create the frame.
 	 */
 	public ProductDetails() {
+		setTitle("Product Details");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 827, 525);
 		contentPane = new JPanel();

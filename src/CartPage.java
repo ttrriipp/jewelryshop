@@ -38,6 +38,7 @@ public class CartPage extends JFrame {
 	 * Create the frame.
 	 */
 	public CartPage() {
+		setTitle("Cart");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 745, 420);
 		contentPane = new JPanel();
