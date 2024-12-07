@@ -98,12 +98,6 @@ public class AdminProduct extends JFrame {
 		lblNewLabel_1_1_1.setBounds(334, 68, 64, 19);
 		contentPane.add(lblNewLabel_1_1_1);
 		
-		JLabel labelProduct = new JLabel("Title Product");
-		labelProduct.setHorizontalAlignment(SwingConstants.CENTER);
-		labelProduct.setFont(new Font("Tahoma", Font.BOLD, 13));
-		labelProduct.setBounds(118, 106, 94, 31);
-		contentPane.add(labelProduct);
-		
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		btnSubmit.setBounds(437, 97, 94, 40);
@@ -113,10 +107,15 @@ public class AdminProduct extends JFrame {
 		descPane.setBounds(322, 98, 94, 40);
 		contentPane.add(descPane);
 		
-		JFormattedTextField formattedTextField = new JFormattedTextField();
-		formattedTextField.setFont(new Font("Tahoma", Font.BOLD, 12));
-		formattedTextField.setBounds(246, 112, 47, 20);
-		contentPane.add(formattedTextField);
+		JFormattedTextField priceEdit = new JFormattedTextField();
+		priceEdit.setFont(new Font("Tahoma", Font.BOLD, 12));
+		priceEdit.setBounds(246, 112, 47, 20);
+		contentPane.add(priceEdit);
+		
+		JEditorPane productEdit = new JEditorPane();
+		productEdit.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		productEdit.setBounds(118, 103, 94, 34);
+		contentPane.add(productEdit);
 
 		setLocationRelativeTo(null);
 		setResizable(false);
