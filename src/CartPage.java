@@ -99,7 +99,7 @@ public class CartPage extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\admin\\git\\jewelryshop-nw2d-ctcc0513\\img\\trash.png"));
+		btnNewButton.setIcon(new ImageIcon("img/trash.png"));
 		btnNewButton.setBounds(386, 33, 30, 30);
 		panel_1.add(btnNewButton);
 		
