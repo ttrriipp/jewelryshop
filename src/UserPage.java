@@ -54,8 +54,8 @@ public class UserPage extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(10, 11, 173, 118);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\admin\\git\\jewelryshop-nw2d-ctcc0513\\img\\placeholder.jpg"));
+		lblNewLabel.setBounds(13, 11, 170, 128);
 		panel.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Silver Necklace");
@@ -88,8 +88,8 @@ public class UserPage extends JFrame {
 		contentPane.add(panel_1);
 		
 		JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setBounds(10, 11, 173, 118);
+		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\admin\\git\\jewelryshop-nw2d-ctcc0513\\img\\placeholder.jpg"));
+		lblNewLabel_3.setBounds(10, 11, 170, 128);
 		panel_1.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Gold Necklace");
@@ -112,8 +112,8 @@ public class UserPage extends JFrame {
 		contentPane.add(panel_1_1);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("New label");
-		lblNewLabel_3_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_1.setBounds(10, 11, 173, 118);
+		lblNewLabel_3_1.setIcon(new ImageIcon("C:\\Users\\admin\\git\\jewelryshop-nw2d-ctcc0513\\img\\placeholder.jpg"));
+		lblNewLabel_3_1.setBounds(10, 11, 170, 128);
 		panel_1_1.add(lblNewLabel_3_1);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Bronze Necklace");
@@ -136,8 +136,8 @@ public class UserPage extends JFrame {
 		contentPane.add(panel_2);
 		
 		JLabel lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4.setBounds(10, 11, 173, 118);
+		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\admin\\git\\jewelryshop-nw2d-ctcc0513\\img\\placeholder.jpg"));
+		lblNewLabel_4.setBounds(10, 11, 170, 128);
 		panel_2.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Silver Ring");
@@ -160,8 +160,8 @@ public class UserPage extends JFrame {
 		contentPane.add(panel_2_1);
 		
 		JLabel lblNewLabel_4_1 = new JLabel("New label");
-		lblNewLabel_4_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4_1.setBounds(10, 11, 173, 118);
+		lblNewLabel_4_1.setIcon(new ImageIcon("C:\\Users\\admin\\git\\jewelryshop-nw2d-ctcc0513\\img\\placeholder.jpg"));
+		lblNewLabel_4_1.setBounds(10, 11, 170, 128);
 		panel_2_1.add(lblNewLabel_4_1);
 		
 		JLabel lblNewLabel_1_2_1 = new JLabel("Gold Ring");
@@ -184,8 +184,8 @@ public class UserPage extends JFrame {
 		contentPane.add(panel_2_2);
 		
 		JLabel lblNewLabel_4_2 = new JLabel("New label");
-		lblNewLabel_4_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4_2.setBounds(10, 11, 173, 118);
+		lblNewLabel_4_2.setIcon(new ImageIcon("C:\\Users\\admin\\git\\jewelryshop-nw2d-ctcc0513\\img\\placeholder.jpg"));
+		lblNewLabel_4_2.setBounds(10, 11, 170, 128);
 		panel_2_2.add(lblNewLabel_4_2);
 		
 		JLabel lblNewLabel_1_2_2 = new JLabel("Bronze Ring");
@@ -203,7 +203,7 @@ public class UserPage extends JFrame {
 		
 		JButton lblNewLabel_5 = new JButton("");
 		lblNewLabel_5.setBackground(new Color(255, 153, 102));
-		lblNewLabel_5.setIcon(new ImageIcon("img/cart.png"));
+		lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\admin\\git\\jewelryshop-nw2d-ctcc0513\\img\\cart.png"));
 		lblNewLabel_5.setBounds(546, 11, 30, 30);
 		contentPane.add(lblNewLabel_5);
 

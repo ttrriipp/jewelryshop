@@ -13,6 +13,7 @@ import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.LinkedList;
+import javax.swing.JEditorPane;
 
 public class AdminProduct extends JFrame {
 
@@ -106,14 +107,14 @@ public class AdminProduct extends JFrame {
 		priceValue.setBounds(236, 111, 53, 22);
 		contentPane.add(priceValue);
 		
-		JTextPane descPane = new JTextPane();
-		descPane.setBounds(320, 97, 94, 40);
-		contentPane.add(descPane);
-		
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		btnSubmit.setBounds(437, 97, 94, 40);
 		contentPane.add(btnSubmit);
+		
+		JEditorPane descPane = new JEditorPane();
+		descPane.setBounds(322, 98, 94, 40);
+		contentPane.add(descPane);
 
 		setLocationRelativeTo(null);
 		setResizable(false);
@@ -123,5 +124,4 @@ public class AdminProduct extends JFrame {
 	}
 
 	LinkedList<String> jewelry = new LinkedList<String>();
-
 }
