@@ -12,6 +12,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.LinkedList;
 
 public class AdminProduct extends JFrame {
 
@@ -116,5 +117,11 @@ public class AdminProduct extends JFrame {
 
 		setLocationRelativeTo(null);
 		setResizable(false);
+
+		jewelry.push("ring");
+
 	}
+
+	LinkedList<String> jewelry = new LinkedList<String>();
+
 }

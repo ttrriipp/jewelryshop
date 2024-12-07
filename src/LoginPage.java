@@ -94,7 +94,6 @@ public class LoginPage extends JFrame{
 				String password = String.valueOf(passwordField.getPassword());
 
 				if(loginInfo.containsKey(username)){
-
 					if(loginInfo.get(username).equals(password)) {
 						dispose();
 						AdminDashboard adminDashboard = new AdminDashboard();
