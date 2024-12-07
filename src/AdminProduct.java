@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.LinkedList;
 import javax.swing.JEditorPane;
+import javax.swing.JFormattedTextField;
 
 public class AdminProduct extends JFrame {
 
@@ -103,10 +104,6 @@ public class AdminProduct extends JFrame {
 		labelProduct.setBounds(118, 106, 94, 31);
 		contentPane.add(labelProduct);
 		
-		JComboBox priceValue = new JComboBox();
-		priceValue.setBounds(236, 111, 53, 22);
-		contentPane.add(priceValue);
-		
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		btnSubmit.setBounds(437, 97, 94, 40);
@@ -115,6 +112,11 @@ public class AdminProduct extends JFrame {
 		JEditorPane descPane = new JEditorPane();
 		descPane.setBounds(322, 98, 94, 40);
 		contentPane.add(descPane);
+		
+		JFormattedTextField formattedTextField = new JFormattedTextField();
+		formattedTextField.setFont(new Font("Tahoma", Font.BOLD, 12));
+		formattedTextField.setBounds(246, 112, 47, 20);
+		contentPane.add(formattedTextField);
 
 		setLocationRelativeTo(null);
 		setResizable(false);
