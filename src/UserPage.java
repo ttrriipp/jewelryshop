@@ -208,7 +208,6 @@ public class UserPage extends JFrame {
 		contentPane.add(lblNewLabel_5);
 
 		setLocationRelativeTo(null);
-		setVisible(true);
 	}
 
 }

@@ -76,7 +76,8 @@ public class LoginPage extends JFrame{
 		JButton btnNewButton = new JButton("Customer Store");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				UserPage user = new UserPage();
+				UserPage userPage = new UserPage();
+				userPage.setVisible(true);
 				dispose();
 			}
 		});
