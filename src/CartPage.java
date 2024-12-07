@@ -73,7 +73,7 @@ public class CartPage extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\admin\\git\\jewelryshop-nw2d-ctcc0513\\img\\placeholder.jpg"));
+		lblNewLabel_1.setIcon(new ImageIcon("img/placeholder.jpg"));
 		lblNewLabel_1.setBounds(10, 11, 83, 74);
 		panel_1.add(lblNewLabel_1);
 		

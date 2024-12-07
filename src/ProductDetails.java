@@ -45,7 +45,7 @@ public class ProductDetails extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\admin\\git\\jewelryshop-nw2d-ctcc0513\\img\\placeholderbig.jpg"));
+		lblNewLabel.setIcon(new ImageIcon("img/placeholderbig.jpg"));
 		lblNewLabel.setBounds(25, 113, 434, 310);
 		contentPane.add(lblNewLabel);
 		
@@ -61,7 +61,7 @@ public class ProductDetails extends JFrame {
 		panel.setLayout(null);
 		
 		JButton lblNewLabel_5 = new JButton("");
-		lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\admin\\git\\jewelryshop-nw2d-ctcc0513\\img\\cart.png"));
+		lblNewLabel_5.setIcon(new ImageIcon("img/cart.png"));
 		lblNewLabel_5.setBackground(new Color(255, 153, 102));
 		lblNewLabel_5.setBounds(731, 22, 30, 30);
 		panel.add(lblNewLabel_5);
@@ -88,7 +88,7 @@ public class ProductDetails extends JFrame {
 		contentPane.add(txtrProductDescription);
 		
 		JButton btnNewButton_1 = new JButton("Add to Cart");
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\admin\\git\\jewelryshop-nw2d-ctcc0513\\img\\cartwhite.png"));
+		btnNewButton_1.setIcon(new ImageIcon("img/cartwhite.png"));
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
 		btnNewButton_1.setBackground(new Color(0, 0, 0));
