@@ -78,6 +78,7 @@ public class AdminDashboard extends JFrame {
 		sidePanel.add(dashboardButton);
 		
 		JButton productButton = new JButton("Product");
+		productButton.setFocusable(false);
 		productButton.setBounds(11, 73, 84, 35);
 		sidePanel.add(productButton);
 		productButton.addActionListener(new ActionListener() {
