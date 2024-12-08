@@ -1,4 +1,5 @@
 import java.awt.EventQueue;
+import java.util.LinkedList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -16,6 +17,18 @@ public class UserPage extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	
+	// Add these as class fields
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_1_1;
+	private JLabel lblNewLabel_1_1_1;
+	private JLabel lblNewLabel_1_2;
+	private JLabel lblNewLabel_1_2_1;
+	private JLabel lblNewLabel_1_2_2;
+	private int currentPage = 0;
+	private static final int PRODUCTS_PER_PAGE = 6;
+	private JButton btnPrevious;
+	private JButton btnNext;
 
 	/**
 	 * Launch the application.
@@ -39,7 +52,7 @@ public class UserPage extends JFrame {
 	public UserPage() {
 		setTitle("Store Page");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 686, 525);
+		setBounds(100, 100, 686, 550);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 153, 102));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -58,7 +71,7 @@ public class UserPage extends JFrame {
 		lblNewLabel.setBounds(13, 11, 170, 128);
 		panel.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Silver Necklace");
+		lblNewLabel_1 = new JLabel("Silver Necklace");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(30, 140, 129, 14);
@@ -92,7 +105,7 @@ public class UserPage extends JFrame {
 		lblNewLabel_3.setBounds(10, 11, 170, 128);
 		panel_1.add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Gold Necklace");
+		lblNewLabel_1_1 = new JLabel("");
 		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_1.setBounds(30, 140, 129, 14);
@@ -116,7 +129,7 @@ public class UserPage extends JFrame {
 		lblNewLabel_3_1.setBounds(10, 11, 170, 128);
 		panel_1_1.add(lblNewLabel_3_1);
 		
-		JLabel lblNewLabel_1_1_1 = new JLabel("Bronze Necklace");
+		lblNewLabel_1_1_1 = new JLabel("");
 		lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_1_1.setBounds(30, 140, 129, 14);
@@ -140,7 +153,7 @@ public class UserPage extends JFrame {
 		lblNewLabel_4.setBounds(10, 11, 170, 128);
 		panel_2.add(lblNewLabel_4);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("Silver Ring");
+		lblNewLabel_1_2 = new JLabel("");
 		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_2.setBounds(30, 140, 129, 14);
@@ -164,7 +177,7 @@ public class UserPage extends JFrame {
 		lblNewLabel_4_1.setBounds(10, 11, 170, 128);
 		panel_2_1.add(lblNewLabel_4_1);
 		
-		JLabel lblNewLabel_1_2_1 = new JLabel("Gold Ring");
+		lblNewLabel_1_2_1 = new JLabel("");
 		lblNewLabel_1_2_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_2_1.setBounds(30, 140, 129, 14);
@@ -188,7 +201,7 @@ public class UserPage extends JFrame {
 		lblNewLabel_4_2.setBounds(10, 11, 170, 128);
 		panel_2_2.add(lblNewLabel_4_2);
 		
-		JLabel lblNewLabel_1_2_2 = new JLabel("Bronze Ring");
+		lblNewLabel_1_2_2 = new JLabel("");
 		lblNewLabel_1_2_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_2_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1_2_2.setBounds(30, 140, 129, 14);
@@ -202,12 +215,109 @@ public class UserPage extends JFrame {
 		panel_2_2.add(btnNewButton_2_2);
 		
 		JButton lblNewLabel_5 = new JButton("");
+		lblNewLabel_5.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				CartPage cartPage = new CartPage();
+				cartPage.setVisible(true);
+			}
+		});
 		lblNewLabel_5.setBackground(new Color(255, 153, 102));
 		lblNewLabel_5.setIcon(new ImageIcon("img/cart.png"));
-		lblNewLabel_5.setBounds(546, 11, 30, 30);
+		lblNewLabel_5.setBounds(485, 11, 30, 30);
 		contentPane.add(lblNewLabel_5);
 
+		// Add the return to login button
+		JButton btnReturnLogin = new JButton("Return to Login");
+		btnReturnLogin.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				AdminCredentials adminCredentials = new AdminCredentials();
+				LoginPage loginPage = new LoginPage(adminCredentials.getLoginInfo());
+				loginPage.setVisible(true);
+			}
+		});
+		btnReturnLogin.setBackground(new Color(255, 153, 102));
+		btnReturnLogin.setBounds(520, 11, 130, 30);
+		contentPane.add(btnReturnLogin);
+
+		// Add navigation buttons at the bottom
+		btnPrevious = new JButton("Previous");
+		btnPrevious.setBounds(23, 480, 100, 30);
+		btnPrevious.setEnabled(false); // Disabled initially
+		btnPrevious.addActionListener(e -> {
+			if (currentPage > 0) {
+				currentPage--;
+				updateProductDisplay();
+			}
+		});
+		contentPane.add(btnPrevious);
+
+		btnNext = new JButton("Next");
+		btnNext.setBounds(550, 480, 100, 30);
+		btnNext.addActionListener(e -> {
+			LinkedList<Product> products = AdminProduct.getProductList();
+			if ((currentPage + 1) * PRODUCTS_PER_PAGE < products.size()) {
+				currentPage++;
+				updateProductDisplay();
+			}
+		});
+		contentPane.add(btnNext);
+
 		setLocationRelativeTo(null);
+		
+		updateProductDisplay();
+	}
+
+	private void updateProductDisplay() {
+		LinkedList<Product> products = AdminProduct.getProductList();
+		
+		// Calculate start and end indices for current page
+		int startIndex = currentPage * PRODUCTS_PER_PAGE;
+		int endIndex = Math.min(startIndex + PRODUCTS_PER_PAGE, products.size());
+
+		lblNewLabel_1.setText("");
+		lblNewLabel_1_1.setText("");
+		lblNewLabel_1_1_1.setText("");
+		lblNewLabel_1_2.setText("");
+		lblNewLabel_1_2_1.setText("");
+		lblNewLabel_1_2_2.setText("");
+
+		
+		// Update navigation buttons
+		btnPrevious.setEnabled(currentPage > 0);
+		btnNext.setEnabled((currentPage + 1) * PRODUCTS_PER_PAGE < products.size());
+		
+		if (!products.isEmpty()) {
+			// Update labels based on current page
+			for (int i = startIndex; i < endIndex; i++) {
+				Product product = products.get(i);
+				int displayIndex = i - startIndex; // Relative index on current page
+				
+				switch (displayIndex) {
+					case 0:
+						lblNewLabel_1.setText(product.getName());
+						break;
+					case 1:
+						lblNewLabel_1_1.setText(product.getName());
+						break;
+					case 2:
+						lblNewLabel_1_1_1.setText(product.getName());
+						break;
+					case 3:
+						lblNewLabel_1_2.setText(product.getName());
+						break;
+					case 4:
+						lblNewLabel_1_2_1.setText(product.getName());
+						break;
+					case 5:
+						lblNewLabel_1_2_2.setText(product.getName());
+						break;
+				}
+			}
+		}
 	}
 
 }

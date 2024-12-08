@@ -8,18 +8,28 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JComboBox;
-import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.LinkedList;
 import javax.swing.JEditorPane;
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
 
 public class AdminProduct extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private static LinkedList<Product> productList = new LinkedList<>();
+
+	// Initialize default products
+	static {
+		productList.add(new Product("Silver Necklace", 299.99, "Elegant silver necklace with pendant"));
+		productList.add(new Product("Gold Necklace", 599.99, "Luxurious 18k gold necklace"));
+		productList.add(new Product("Bronze Necklace", 149.99, "Vintage bronze necklace design"));
+		productList.add(new Product("Silver Ring", 199.99, "Sterling silver ring with diamond"));
+		productList.add(new Product("Gold Ring", 399.99, "Classic gold wedding band"));
+		productList.add(new Product("Bronze Ring", 99.99, "Antique bronze ring with pattern"));
+	}
 
 	/**
 	 * Launch the application.
@@ -120,9 +130,39 @@ public class AdminProduct extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 
-		jewelry.push("ring");
+
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					String productName = productEdit.getText();
+					double price = Double.parseDouble(priceEdit.getText());
+					String description = descPane.getText();
+					
+					if (productName.isEmpty() || description.isEmpty()) {
+						JOptionPane.showMessageDialog(null, "Please fill all fields!");
+						return;
+					}
+					
+					Product newProduct = new Product(productName, price, description);
+					productList.add(newProduct);
+					
+					// Clear fields after successful addition
+					productEdit.setText("");
+					priceEdit.setText("");
+					descPane.setText("");
+					
+					JOptionPane.showMessageDialog(null, "Product added successfully!");
+					
+				} catch (NumberFormatException ex) {
+					JOptionPane.showMessageDialog(null, "Please enter a valid price!");
+				}
+			}
+		});
 
 	}
 
-	LinkedList<String> jewelry = new LinkedList<String>();
+
+	public static LinkedList<Product> getProductList() {
+		return productList;
+	}
 }
