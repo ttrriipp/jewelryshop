@@ -1,3 +1,5 @@
+package Frame;
+
 import Model.Product;
 
 import java.awt.*;

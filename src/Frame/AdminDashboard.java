@@ -1,3 +1,5 @@
+package Frame;
+
 import Model.AdminCredentials;
 
 import java.awt.EventQueue;
