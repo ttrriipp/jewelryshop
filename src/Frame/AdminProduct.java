@@ -29,7 +29,6 @@ public class AdminProduct extends JFrame {
 		productList.add(new Product("Gold Necklace", 499.99, "18k gold chain necklace", "Necklace"));
 	}
 
-
 	/**
 	 * Create the frame.
 	 */
@@ -45,15 +44,13 @@ public class AdminProduct extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		// Title label matching dashboard style
+
 		JLabel lblNewLabel = new JLabel("Add New Product");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Sylfaen", Font.BOLD, 16));
 		lblNewLabel.setBounds(90, 6, 179, 31);
 		contentPane.add(lblNewLabel);
-		
-		// Left sidebar panel matching dashboard
+
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 153, 102));
 		panel.setBounds(0, 0, 108, 389);
@@ -141,8 +138,7 @@ public class AdminProduct extends JFrame {
 						JOptionPane.showMessageDialog(null, "Please fill all fields!");
 						return;
 					}
-					
-					// Include type in product description
+
 					String fullDescription = "Type: " + selectedType + "\n" + description;
 					Product newProduct = new Product(productName, price, fullDescription, selectedType);
 					productList.add(newProduct);
@@ -153,7 +149,7 @@ public class AdminProduct extends JFrame {
 					priceEdit.setText("");
 					descPane.setText("");
 					
-					JOptionPane.showMessageDialog(null, "Model.Product added successfully!");
+					JOptionPane.showMessageDialog(null, "Product added successfully!");
 					
 				} catch (NumberFormatException ex) {
 					JOptionPane.showMessageDialog(null, "Please enter a valid price!");

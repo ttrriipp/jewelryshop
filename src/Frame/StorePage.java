@@ -297,7 +297,6 @@ public class StorePage extends JFrame {
 		btnReturnLogin.setBounds(520, 11, 130, 30);
 		contentPane.add(btnReturnLogin);
 
-		// Add navigation buttons at the bottom
 		btnPrevious = new JButton("Previous");
 		btnPrevious.setBounds(23, 480, 100, 30);
 		btnPrevious.setEnabled(false); // Disabled initially
