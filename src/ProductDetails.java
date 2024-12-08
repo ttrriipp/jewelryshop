@@ -82,7 +82,7 @@ public class ProductDetails extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				UserPage selection = new UserPage();
+				StorePage selection = new StorePage();
 				selection.setVisible(true);
 			}
 		});

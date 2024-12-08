@@ -1,19 +1,10 @@
-import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.Font;
+import java.awt.*;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.LinkedList;
-import javax.swing.JEditorPane;
-import javax.swing.JFormattedTextField;
-import javax.swing.JOptionPane;
 
 public class AdminProduct extends JFrame {
 
@@ -23,12 +14,12 @@ public class AdminProduct extends JFrame {
 
 	// Initialize default products
 	static {
-		productList.add(new Product("Silver Necklace", 299.99, "Elegant silver necklace with pendant"));
-		productList.add(new Product("Gold Necklace", 599.99, "Luxurious 18k gold necklace"));
-		productList.add(new Product("Bronze Necklace", 149.99, "Vintage bronze necklace design"));
-		productList.add(new Product("Silver Ring", 199.99, "Sterling silver ring with diamond"));
-		productList.add(new Product("Gold Ring", 399.99, "Classic gold wedding band"));
-		productList.add(new Product("Bronze Ring", 99.99, "Antique bronze ring with pattern"));
+		productList.add(new Product("Silver Necklace", 299.99, "Elegant silver necklace with pendant", "Necklace"));
+		productList.add(new Product("Gold Ring", 399.99, "Classic gold wedding band", "Ring"));
+		productList.add(new Product("Pearl Bracelet", 249.99, "Freshwater pearl bracelet with silver clasp", "Bracelet"));
+		productList.add(new Product("Diamond Earrings", 599.99, "Sparkling diamond stud earrings", "Earrings"));
+		productList.add(new Product("Rose Gold Anklet", 149.99, "Delicate rose gold chain anklet", "Anklet"));
+		productList.add(new Product("Gold Necklace", 499.99, "18k gold chain necklace", "Necklace"));
 	}
 
 	/**
@@ -56,16 +47,19 @@ public class AdminProduct extends JFrame {
 		setBounds(100, 100, 555, 420);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBackground(new Color(255, 255, 255));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Product Details");
+		// Title label matching dashboard style
+		JLabel lblNewLabel = new JLabel("Add New Product");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Sylfaen", Font.BOLD, 16));
 		lblNewLabel.setBounds(90, 6, 179, 31);
 		contentPane.add(lblNewLabel);
 		
+		// Left sidebar panel matching dashboard
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 153, 102));
 		panel.setBounds(0, 0, 108, 389);
@@ -73,6 +67,8 @@ public class AdminProduct extends JFrame {
 		panel.setLayout(null);
 		
 		JButton btnDashboard = new JButton("Dash\r\nBoard");
+		btnDashboard.setBounds(10, 27, 85, 35);
+		btnDashboard.setFocusable(false);
 		btnDashboard.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -80,61 +76,70 @@ public class AdminProduct extends JFrame {
 				adminDashboard.setVisible(true);
 			}
 		});
-		btnDashboard.setBounds(10, 27, 85, 35);
 		panel.add(btnDashboard);
 		
 		JButton btnProduct = new JButton("Product");
 		btnProduct.setBounds(11, 73, 84, 35);
+		btnProduct.setFocusable(false);
 		panel.add(btnProduct);
+
+		JLabel lblProduct = new JLabel("Product Name:");
+		lblProduct.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblProduct.setBounds(140, 50, 120, 25);
+		contentPane.add(lblProduct);
 		
-		JLabel lblNewLabel_1 = new JLabel("Product");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.ITALIC, 12));
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setForeground(new Color(128, 128, 128));
-		lblNewLabel_1.setBounds(128, 68, 64, 19);
-		contentPane.add(lblNewLabel_1);
+		JTextField productEdit = new JTextField();
+		productEdit.setBounds(140, 75, 250, 25);
+		contentPane.add(productEdit);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Price");
-		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1.setForeground(Color.GRAY);
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.ITALIC, 12));
-		lblNewLabel_1_1.setBounds(236, 68, 64, 19);
-		contentPane.add(lblNewLabel_1_1);
+		JLabel lblType = new JLabel("Jewelry Type:");
+		lblType.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblType.setBounds(140, 110, 120, 25);
+		contentPane.add(lblType);
 		
-		JLabel lblNewLabel_1_1_1 = new JLabel("Details");
-		lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1_1.setForeground(Color.GRAY);
-		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.ITALIC, 12));
-		lblNewLabel_1_1_1.setBounds(334, 68, 64, 19);
-		contentPane.add(lblNewLabel_1_1_1);
+		String[] jewelryTypes = {
+			"Necklace", "Ring", "Bracelet", "Earrings", "Anklet"
+		};
 		
-		JButton btnSubmit = new JButton("Submit");
-		btnSubmit.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
-		btnSubmit.setBounds(437, 97, 94, 40);
-		contentPane.add(btnSubmit);
+		JComboBox<String> typeComboBox = new JComboBox<>(jewelryTypes);
+		typeComboBox.setBounds(140, 135, 250, 25);
+		contentPane.add(typeComboBox);
 		
-		JEditorPane descPane = new JEditorPane();
-		descPane.setBounds(322, 98, 94, 40);
-		contentPane.add(descPane);
+		JLabel lblPrice = new JLabel("Price (₱):");
+		lblPrice.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblPrice.setBounds(140, 170, 120, 25);
+		contentPane.add(lblPrice);
 		
 		JFormattedTextField priceEdit = new JFormattedTextField();
-		priceEdit.setFont(new Font("Tahoma", Font.BOLD, 12));
-		priceEdit.setBounds(246, 112, 47, 20);
+		priceEdit.setBounds(140, 195, 120, 25);
 		contentPane.add(priceEdit);
 		
-		JEditorPane productEdit = new JEditorPane();
-		productEdit.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		productEdit.setBounds(118, 103, 94, 34);
-		contentPane.add(productEdit);
-
-		setLocationRelativeTo(null);
-		setResizable(false);
-
+		JLabel lblDescription = new JLabel("Description:");
+		lblDescription.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblDescription.setBounds(140, 230, 120, 25);
+		contentPane.add(lblDescription);
+		
+		JTextArea descPane = new JTextArea();
+		descPane.setLineWrap(true);
+		descPane.setWrapStyleWord(true);
+		
+		JScrollPane scrollPane = new JScrollPane(descPane);
+		scrollPane.setBounds(140, 255, 250, 70);
+		contentPane.add(scrollPane);
+		
+		JButton btnSubmit = new JButton("Add Product");
+		btnSubmit.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnSubmit.setBackground(new Color(255, 153, 102));
+		btnSubmit.setForeground(Color.WHITE);
+		btnSubmit.setFocusable(false);
+		btnSubmit.setBounds(140, 335, 120, 30);
+		contentPane.add(btnSubmit);
 
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					String productName = productEdit.getText();
+					String selectedType = (String) typeComboBox.getSelectedItem();
 					double price = Double.parseDouble(priceEdit.getText());
 					String description = descPane.getText();
 					
@@ -143,11 +148,14 @@ public class AdminProduct extends JFrame {
 						return;
 					}
 					
-					Product newProduct = new Product(productName, price, description);
+					// Include type in product description
+					String fullDescription = "Type: " + selectedType + "\n" + description;
+					Product newProduct = new Product(productName, price, fullDescription, selectedType);
 					productList.add(newProduct);
 					
 					// Clear fields after successful addition
 					productEdit.setText("");
+					typeComboBox.setSelectedIndex(0);
 					priceEdit.setText("");
 					descPane.setText("");
 					
@@ -159,6 +167,8 @@ public class AdminProduct extends JFrame {
 			}
 		});
 
+		setLocationRelativeTo(null);
+		setResizable(false);
 	}
 
 

@@ -76,8 +76,8 @@ public class LoginPage extends JFrame{
 		JButton btnNewButton = new JButton("Customer Store");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				UserPage userPage = new UserPage();
-				userPage.setVisible(true);
+				StorePage storePage = new StorePage();
+				storePage.setVisible(true);
 				dispose();
 			}
 		});
@@ -105,9 +105,9 @@ public class LoginPage extends JFrame{
 					JOptionPane.showMessageDialog(null, "Wrong Username!", "Wrong Username", JOptionPane.ERROR_MESSAGE);
 				}
 				if(username.isEmpty())
-					JOptionPane.showMessageDialog(null, "Please input login credentials!!!!!!!!", "Walang nakalagay", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Please input all fields!", "Blank Fields", JOptionPane.INFORMATION_MESSAGE);
 				else if (password.isEmpty())
-					JOptionPane.showMessageDialog(null, "Please input login credentials!!!!!!!!", "Walang nakalagay", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Please input all fields!", "Blank Fields", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		btnLogin.setForeground(new Color(255, 255, 255));

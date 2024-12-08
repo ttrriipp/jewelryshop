@@ -13,12 +13,18 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class UserPage extends JFrame {
+public class StorePage extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	
 	// Add these as class fields
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_3_1;
+	private JLabel lblNewLabel_4;
+	private JLabel lblNewLabel_4_1;
+	private JLabel lblNewLabel_4_2;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_1_1;
 	private JLabel lblNewLabel_1_1_1;
@@ -37,7 +43,7 @@ public class UserPage extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					UserPage frame = new UserPage();
+					StorePage frame = new StorePage();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -49,7 +55,7 @@ public class UserPage extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public UserPage() {
+	public StorePage() {
 		setTitle("Store Page");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 686, 550);
@@ -66,20 +72,23 @@ public class UserPage extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("img/placeholder.jpg"));
 		lblNewLabel.setBounds(13, 11, 170, 128);
 		panel.add(lblNewLabel);
 		
-		lblNewLabel_1 = new JLabel("Silver Necklace");
+		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setBounds(30, 140, 129, 14);
+		lblNewLabel_1.setBounds(30, 140, 129, 18);
 		panel.add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("More Details");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ProductDetails details = new ProductDetails();
+				details.setVisible(true);
 			}
 		});
 		btnNewButton.setForeground(new Color(255, 255, 255));
@@ -100,7 +109,7 @@ public class UserPage extends JFrame {
 		panel_1.setBounds(241, 58, 193, 196);
 		contentPane.add(panel_1);
 		
-		JLabel lblNewLabel_3 = new JLabel("New label");
+		lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(new ImageIcon("img/placeholder.jpg"));
 		lblNewLabel_3.setBounds(10, 11, 170, 128);
 		panel_1.add(lblNewLabel_3);
@@ -108,10 +117,18 @@ public class UserPage extends JFrame {
 		lblNewLabel_1_1 = new JLabel("");
 		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_1.setBounds(30, 140, 129, 14);
+		lblNewLabel_1_1.setBounds(30, 140, 129, 18);
 		panel_1.add(lblNewLabel_1_1);
 		
 		JButton btnNewButton_1 = new JButton("More Details");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ProductDetails details = new ProductDetails();
+				details.setVisible(true);
+			}
+		});
 		btnNewButton_1.setForeground(Color.WHITE);
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnNewButton_1.setBackground(Color.BLACK);
@@ -124,7 +141,7 @@ public class UserPage extends JFrame {
 		panel_1_1.setBounds(457, 57, 193, 196);
 		contentPane.add(panel_1_1);
 		
-		JLabel lblNewLabel_3_1 = new JLabel("New label");
+		lblNewLabel_3_1 = new JLabel("");
 		lblNewLabel_3_1.setIcon(new ImageIcon("img/placeholder.jpg"));
 		lblNewLabel_3_1.setBounds(10, 11, 170, 128);
 		panel_1_1.add(lblNewLabel_3_1);
@@ -132,10 +149,18 @@ public class UserPage extends JFrame {
 		lblNewLabel_1_1_1 = new JLabel("");
 		lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_1_1.setBounds(30, 140, 129, 14);
+		lblNewLabel_1_1_1.setBounds(30, 140, 129, 18);
 		panel_1_1.add(lblNewLabel_1_1_1);
 		
 		JButton btnNewButton_1_1 = new JButton("More Details");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ProductDetails details = new ProductDetails();
+				details.setVisible(true);
+			}
+		});
 		btnNewButton_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnNewButton_1_1.setBackground(Color.BLACK);
@@ -148,7 +173,7 @@ public class UserPage extends JFrame {
 		panel_2.setBounds(23, 276, 193, 196);
 		contentPane.add(panel_2);
 		
-		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setIcon(new ImageIcon("img/placeholder.jpg"));
 		lblNewLabel_4.setBounds(10, 11, 170, 128);
 		panel_2.add(lblNewLabel_4);
@@ -156,10 +181,18 @@ public class UserPage extends JFrame {
 		lblNewLabel_1_2 = new JLabel("");
 		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2.setBounds(30, 140, 129, 14);
+		lblNewLabel_1_2.setBounds(30, 140, 129, 18);
 		panel_2.add(lblNewLabel_1_2);
 		
 		JButton btnNewButton_2 = new JButton("More Details");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ProductDetails details = new ProductDetails();
+				details.setVisible(true);
+			}
+		});
 		btnNewButton_2.setForeground(Color.WHITE);
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnNewButton_2.setBackground(Color.BLACK);
@@ -172,7 +205,7 @@ public class UserPage extends JFrame {
 		panel_2_1.setBounds(241, 276, 193, 196);
 		contentPane.add(panel_2_1);
 		
-		JLabel lblNewLabel_4_1 = new JLabel("New label");
+		lblNewLabel_4_1 = new JLabel("");
 		lblNewLabel_4_1.setIcon(new ImageIcon("img/placeholder.jpg"));
 		lblNewLabel_4_1.setBounds(10, 11, 170, 128);
 		panel_2_1.add(lblNewLabel_4_1);
@@ -180,10 +213,18 @@ public class UserPage extends JFrame {
 		lblNewLabel_1_2_1 = new JLabel("");
 		lblNewLabel_1_2_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2_1.setBounds(30, 140, 129, 14);
+		lblNewLabel_1_2_1.setBounds(30, 140, 129, 18);
 		panel_2_1.add(lblNewLabel_1_2_1);
 		
 		JButton btnNewButton_2_1 = new JButton("More Details");
+		btnNewButton_2_1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ProductDetails details = new ProductDetails();
+				details.setVisible(true);
+			}
+		});
 		btnNewButton_2_1.setForeground(Color.WHITE);
 		btnNewButton_2_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnNewButton_2_1.setBackground(Color.BLACK);
@@ -196,7 +237,7 @@ public class UserPage extends JFrame {
 		panel_2_2.setBounds(457, 276, 193, 196);
 		contentPane.add(panel_2_2);
 		
-		JLabel lblNewLabel_4_2 = new JLabel("New label");
+		lblNewLabel_4_2 = new JLabel("");
 		lblNewLabel_4_2.setIcon(new ImageIcon("img/placeholder.jpg"));
 		lblNewLabel_4_2.setBounds(10, 11, 170, 128);
 		panel_2_2.add(lblNewLabel_4_2);
@@ -204,10 +245,18 @@ public class UserPage extends JFrame {
 		lblNewLabel_1_2_2 = new JLabel("");
 		lblNewLabel_1_2_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_2_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1_2_2.setBounds(30, 140, 129, 14);
+		lblNewLabel_1_2_2.setBounds(30, 140, 129, 18);
 		panel_2_2.add(lblNewLabel_1_2_2);
 		
 		JButton btnNewButton_2_2 = new JButton("More Details");
+		btnNewButton_2_2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ProductDetails details = new ProductDetails();
+				details.setVisible(true);
+			}
+		});
 		btnNewButton_2_2.setForeground(Color.WHITE);
 		btnNewButton_2_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnNewButton_2_2.setBackground(Color.BLACK);
@@ -267,17 +316,19 @@ public class UserPage extends JFrame {
 		contentPane.add(btnNext);
 
 		setLocationRelativeTo(null);
+		setResizable(false);
 		
 		updateProductDisplay();
 	}
 
 	private void updateProductDisplay() {
 		LinkedList<Product> products = AdminProduct.getProductList();
-		
+
 		// Calculate start and end indices for current page
 		int startIndex = currentPage * PRODUCTS_PER_PAGE;
 		int endIndex = Math.min(startIndex + PRODUCTS_PER_PAGE, products.size());
 
+		// Clear all labels first
 		lblNewLabel_1.setText("");
 		lblNewLabel_1_1.setText("");
 		lblNewLabel_1_1_1.setText("");
@@ -285,7 +336,24 @@ public class UserPage extends JFrame {
 		lblNewLabel_1_2_1.setText("");
 		lblNewLabel_1_2_2.setText("");
 
-		
+		lblNewLabel.setIcon(new ImageIcon("img/placeholder.jpg"));
+		lblNewLabel_3.setIcon(new ImageIcon("img/placeholder.jpg"));
+		lblNewLabel_3_1.setIcon(new ImageIcon("img/placeholder.jpg"));
+		lblNewLabel_4.setIcon(new ImageIcon("img/placeholder.jpg"));
+		lblNewLabel_4_1.setIcon(new ImageIcon("img/placeholder.jpg"));
+		lblNewLabel_4_2.setIcon(new ImageIcon("img/placeholder.jpg"));
+
+		JLabel[] imageLabels = {
+			lblNewLabel,          // First product image
+			lblNewLabel_3,        // Second product image
+			lblNewLabel_3_1,      // Third product image
+			lblNewLabel_4,        // Fourth product image
+			lblNewLabel_4_1,      // Fifth product image
+			lblNewLabel_4_2       // Sixth product image
+
+
+		};
+
 		// Update navigation buttons
 		btnPrevious.setEnabled(currentPage > 0);
 		btnNext.setEnabled((currentPage + 1) * PRODUCTS_PER_PAGE < products.size());
@@ -295,6 +363,12 @@ public class UserPage extends JFrame {
 			for (int i = startIndex; i < endIndex; i++) {
 				Product product = products.get(i);
 				int displayIndex = i - startIndex; // Relative index on current page
+				
+				// Set the appropriate image based on product type
+				String imagePath = "img/" + product.getType().toLowerCase() + ".png";
+				if (imageLabels[displayIndex] != null) {  // Add null check
+					imageLabels[displayIndex].setIcon(new ImageIcon(imagePath));
+				}
 				
 				switch (displayIndex) {
 					case 0:
