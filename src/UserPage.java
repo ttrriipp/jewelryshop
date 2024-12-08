@@ -225,8 +225,23 @@ public class UserPage extends JFrame {
 		});
 		lblNewLabel_5.setBackground(new Color(255, 153, 102));
 		lblNewLabel_5.setIcon(new ImageIcon("img/cart.png"));
-		lblNewLabel_5.setBounds(546, 11, 30, 30);
+		lblNewLabel_5.setBounds(485, 11, 30, 30);
 		contentPane.add(lblNewLabel_5);
+
+		// Add the return to login button
+		JButton btnReturnLogin = new JButton("Return to Login");
+		btnReturnLogin.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				AdminCredentials adminCredentials = new AdminCredentials();
+				LoginPage loginPage = new LoginPage(adminCredentials.getLoginInfo());
+				loginPage.setVisible(true);
+			}
+		});
+		btnReturnLogin.setBackground(new Color(255, 153, 102));
+		btnReturnLogin.setBounds(520, 11, 130, 30);
+		contentPane.add(btnReturnLogin);
 
 		// Add navigation buttons at the bottom
 		btnPrevious = new JButton("Previous");
