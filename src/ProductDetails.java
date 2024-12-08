@@ -10,6 +10,8 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ProductDetails extends JFrame {
 
@@ -62,12 +64,29 @@ public class ProductDetails extends JFrame {
 		panel.setLayout(null);
 		
 		JButton lblNewLabel_5 = new JButton("");
+		lblNewLabel_5.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				CartPage cartPage = new CartPage();
+				cartPage.setVisible(true);
+			}
+		});
 		lblNewLabel_5.setIcon(new ImageIcon("img/cart.png"));
 		lblNewLabel_5.setBackground(new Color(255, 153, 102));
 		lblNewLabel_5.setBounds(731, 22, 30, 30);
 		panel.add(lblNewLabel_5);
 		
 		JButton btnNewButton = new JButton("Return to Selection");
+		btnNewButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				UserPage selection = new UserPage();
+				selection.setVisible(true);
+			}
+		});
+		btnNewButton.setFocusable(false);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setBackground(new Color(255, 153, 102));
@@ -95,5 +114,6 @@ public class ProductDetails extends JFrame {
 		btnNewButton_1.setBackground(new Color(0, 0, 0));
 		btnNewButton_1.setBounds(490, 286, 169, 36);
 		contentPane.add(btnNewButton_1);
+		setLocationRelativeTo(null);
 	}
 }

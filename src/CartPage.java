@@ -54,6 +54,15 @@ public class CartPage extends JFrame {
 		contentPane.add(panel);
 		
 		JButton btnReturn = new JButton("Return to Selection");
+		btnReturn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				UserPage selection = new UserPage();
+				selection.setVisible(true);
+			}
+		});
+		btnReturn.setFocusable(false);
 		btnReturn.setForeground(Color.WHITE);
 		btnReturn.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnReturn.setBackground(new Color(255, 153, 102));
@@ -133,5 +142,6 @@ public class CartPage extends JFrame {
 		btnNewButton_1.setBackground(new Color(0, 0, 0));
 		btnNewButton_1.setBounds(10, 145, 225, 31);
 		panel_2.add(btnNewButton_1);
+		setLocationRelativeTo(null);
 	}
 }
