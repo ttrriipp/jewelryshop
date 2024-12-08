@@ -23,6 +23,7 @@ public class AdminProduct extends JFrame {
 	private JPanel contentPane;
 	private static LinkedList<Product> productList = new LinkedList<>();
 
+	// Initialize default products
 	static {
 		productList.add(new Product("Silver Necklace", 299.99, "Elegant silver necklace with pendant"));
 		productList.add(new Product("Gold Necklace", 599.99, "Luxurious 18k gold necklace"));

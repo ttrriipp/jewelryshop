@@ -263,6 +263,13 @@ public class UserPage extends JFrame {
 		int startIndex = currentPage * PRODUCTS_PER_PAGE;
 		int endIndex = Math.min(startIndex + PRODUCTS_PER_PAGE, products.size());
 
+		lblNewLabel_1.setText("");
+		lblNewLabel_1_1.setText("");
+		lblNewLabel_1_1_1.setText("");
+		lblNewLabel_1_2.setText("");
+		lblNewLabel_1_2_1.setText("");
+		lblNewLabel_1_2_2.setText("");
+
 		
 		// Update navigation buttons
 		btnPrevious.setEnabled(currentPage > 0);
