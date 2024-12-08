@@ -40,7 +40,7 @@ public class ProductDetails extends JFrame {
 	 * Create the frame.
 	 */
 	public ProductDetails() {
-		setTitle("Model.Product Details");
+		setTitle("Product Details");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 827, 525);
 		contentPane = new JPanel();
@@ -49,24 +49,24 @@ public class ProductDetails extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("img/placeholderbig.jpg"));
-		lblNewLabel.setBounds(25, 113, 434, 310);
-		contentPane.add(lblNewLabel);
+		JLabel productImageLabel = new JLabel("");
+		productImageLabel.setIcon(new ImageIcon("img/placeholderbig.jpg"));
+		productImageLabel.setBounds(25, 113, 434, 310);
+		contentPane.add(productImageLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Model.Product Name");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 24));
-		lblNewLabel_1.setBounds(507, 114, 254, 48);
-		contentPane.add(lblNewLabel_1);
+		JLabel productNameLabel = new JLabel("Product Name");
+		productNameLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 24));
+		productNameLabel.setBounds(507, 114, 254, 48);
+		contentPane.add(productNameLabel);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 153, 102));
-		panel.setBounds(0, 0, 811, 79);
-		contentPane.add(panel);
-		panel.setLayout(null);
+		JPanel headerPanel = new JPanel();
+		headerPanel.setBackground(new Color(255, 153, 102));
+		headerPanel.setBounds(0, 0, 811, 79);
+		contentPane.add(headerPanel);
+		headerPanel.setLayout(null);
 		
-		JButton lblNewLabel_5 = new JButton("");
-		lblNewLabel_5.addActionListener(new ActionListener() {
+		JButton cartButton = new JButton("");
+		cartButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -74,13 +74,13 @@ public class ProductDetails extends JFrame {
 				cartPage.setVisible(true);
 			}
 		});
-		lblNewLabel_5.setIcon(new ImageIcon("img/cart.png"));
-		lblNewLabel_5.setBackground(new Color(255, 153, 102));
-		lblNewLabel_5.setBounds(731, 22, 30, 30);
-		panel.add(lblNewLabel_5);
+		cartButton.setIcon(new ImageIcon("img/cart.png"));
+		cartButton.setBackground(new Color(255, 153, 102));
+		cartButton.setBounds(731, 22, 30, 30);
+		headerPanel.add(cartButton);
 		
-		JButton btnNewButton = new JButton("Return to Selection");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton returnButton = new JButton("Return to Selection");
+		returnButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -88,34 +88,34 @@ public class ProductDetails extends JFrame {
 				selection.setVisible(true);
 			}
 		});
-		btnNewButton.setFocusable(false);
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBackground(new Color(255, 153, 102));
-		btnNewButton.setBounds(25, 22, 186, 30);
-		panel.add(btnNewButton);
+		returnButton.setFocusable(false);
+		returnButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		returnButton.setForeground(new Color(255, 255, 255));
+		returnButton.setBackground(new Color(255, 153, 102));
+		returnButton.setBounds(25, 22, 186, 30);
+		headerPanel.add(returnButton);
 		
-		JLabel lblNewLabel_2 = new JLabel("Price");
-		lblNewLabel_2.setForeground(new Color(51, 51, 255));
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
-		lblNewLabel_2.setBounds(490, 180, 143, 26);
-		contentPane.add(lblNewLabel_2);
+		JLabel priceLabel = new JLabel("Price");
+		priceLabel.setForeground(new Color(51, 51, 255));
+		priceLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		priceLabel.setBounds(490, 180, 143, 26);
+		contentPane.add(priceLabel);
 		
-		JTextArea txtrProductDescription = new JTextArea();
-		txtrProductDescription.setFont(new Font("Monospaced", Font.PLAIN, 14));
-		txtrProductDescription.setText("Model.Product Description");
-		txtrProductDescription.setEditable(false);
-		txtrProductDescription.setBackground(SystemColor.menu);
-		txtrProductDescription.setBounds(490, 217, 271, 58);
-		contentPane.add(txtrProductDescription);
+		JTextArea descriptionArea = new JTextArea();
+		descriptionArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
+		descriptionArea.setText("Product Description");
+		descriptionArea.setEditable(false);
+		descriptionArea.setBackground(SystemColor.menu);
+		descriptionArea.setBounds(490, 217, 271, 58);
+		contentPane.add(descriptionArea);
 		
-		JButton btnNewButton_1 = new JButton("Add to Cart");
-		btnNewButton_1.setIcon(new ImageIcon("img/cartwhite.png"));
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBackground(new Color(0, 0, 0));
-		btnNewButton_1.setBounds(490, 286, 169, 36);
-		contentPane.add(btnNewButton_1);
+		JButton addToCartButton = new JButton("Add to Cart");
+		addToCartButton.setIcon(new ImageIcon("img/cartwhite.png"));
+		addToCartButton.setFont(new Font("Tahoma", Font.BOLD, 14));
+		addToCartButton.setForeground(new Color(255, 255, 255));
+		addToCartButton.setBackground(new Color(0, 0, 0));
+		addToCartButton.setBounds(490, 286, 169, 36);
+		contentPane.add(addToCartButton);
 		setLocationRelativeTo(null);
 	}
 }

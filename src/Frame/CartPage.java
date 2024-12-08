@@ -40,110 +40,103 @@ public class CartPage extends JFrame {
 	 * Create the frame.
 	 */
 	public CartPage() {
-		setTitle("Cart");
+		setTitle("Shopping Cart");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 745, 420);
+		setBounds(100, 100, 555, 420);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBackground(new Color(255, 255, 255));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBackground(new Color(255, 153, 102));
-		panel.setBounds(0, 0, 729, 79);
-		contentPane.add(panel);
+		JPanel headerPanel = new JPanel();
+		headerPanel.setBackground(new Color(255, 153, 102));
+		headerPanel.setBounds(0, 0, 539, 79);
+		contentPane.add(headerPanel);
+		headerPanel.setLayout(null);
 		
-		JButton btnReturn = new JButton("Return to Selection");
-		btnReturn.addActionListener(new ActionListener() {
-			@Override
+		JButton returnButton = new JButton("Return to Selection");
+		returnButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				StorePage selection = new StorePage();
-				selection.setVisible(true);
+				StorePage storePage = new StorePage();
+				storePage.setVisible(true);
 			}
 		});
-		btnReturn.setFocusable(false);
-		btnReturn.setForeground(Color.WHITE);
-		btnReturn.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnReturn.setBackground(new Color(255, 153, 102));
-		btnReturn.setBounds(25, 22, 186, 30);
-		panel.add(btnReturn);
+		returnButton.setForeground(new Color(255, 255, 255));
+		returnButton.setBackground(new Color(0, 0, 0));
+		returnButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		returnButton.setBounds(25, 22, 186, 30);
+		headerPanel.add(returnButton);
 		
-		JLabel lblNewLabel = new JLabel("Your Cart");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel.setBounds(22, 90, 174, 41);
-		contentPane.add(lblNewLabel);
+		JPanel cartItemPanel = new JPanel();
+		cartItemPanel.setBackground(new Color(255, 255, 255));
+		cartItemPanel.setBounds(10, 90, 519, 180);
+		contentPane.add(cartItemPanel);
+		cartItemPanel.setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(255, 255, 255));
-		panel_1.setBounds(22, 132, 430, 96);
-		contentPane.add(panel_1);
-		panel_1.setLayout(null);
+		JLabel productImageLabel = new JLabel("");
+		productImageLabel.setIcon(new ImageIcon("img/placeholder.jpg"));
+		productImageLabel.setBounds(10, 11, 137, 158);
+		cartItemPanel.add(productImageLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setIcon(new ImageIcon("img/placeholder.jpg"));
-		lblNewLabel_1.setBounds(10, 11, 83, 74);
-		panel_1.add(lblNewLabel_1);
+		JLabel productNameLabel = new JLabel("Product Name");
+		productNameLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		productNameLabel.setBounds(157, 11, 137, 35);
+		cartItemPanel.add(productNameLabel);
 		
-		JLabel lblNewLabel_2 = new JLabel("Model.Product Title");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel_2.setBounds(103, 23, 142, 21);
-		panel_1.add(lblNewLabel_2);
+		JLabel priceLabel = new JLabel("Price:");
+		priceLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		priceLabel.setBounds(157, 57, 46, 14);
+		cartItemPanel.add(priceLabel);
 		
-		JLabel lblNewLabel_3 = new JLabel("Price");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
-		lblNewLabel_3.setForeground(new Color(0, 51, 204));
-		lblNewLabel_3.setBounds(105, 45, 66, 14);
-		panel_1.add(lblNewLabel_3);
+		JLabel priceValueLabel = new JLabel("Price Value");
+		priceValueLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		priceValueLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		priceValueLabel.setBounds(213, 57, 81, 14);
+		cartItemPanel.add(priceValueLabel);
 		
-		JSpinner spinner = new JSpinner();
-		spinner.setBounds(310, 35, 56, 27);
-		panel_1.add(spinner);
+		JLabel quantityLabel = new JLabel("Quantity:");
+		quantityLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		quantityLabel.setBounds(157, 82, 67, 14);
+		cartItemPanel.add(quantityLabel);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setBackground(new Color(255, 255, 255));
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.setIcon(new ImageIcon("img/trash.png"));
-		btnNewButton.setBounds(386, 33, 30, 30);
-		panel_1.add(btnNewButton);
+		JSpinner quantitySpinner = new JSpinner();
+		quantitySpinner.setBounds(234, 81, 60, 20);
+		cartItemPanel.add(quantitySpinner);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(new Color(255, 255, 255));
-		panel_2.setBounds(474, 90, 245, 187);
-		contentPane.add(panel_2);
-		panel_2.setLayout(null);
+		JPanel summaryPanel = new JPanel();
+		summaryPanel.setBackground(new Color(255, 255, 255));
+		summaryPanel.setBounds(304, 281, 225, 89);
+		contentPane.add(summaryPanel);
+		summaryPanel.setLayout(null);
 		
-		JLabel lblNewLabel_4 = new JLabel("Order Summary");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4.setBounds(20, 11, 137, 35);
-		panel_2.add(lblNewLabel_4);
+		JLabel orderSummaryLabel = new JLabel("Order Summary");
+		orderSummaryLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		orderSummaryLabel.setBounds(20, 11, 137, 35);
+		summaryPanel.add(orderSummaryLabel);
 		
-		JLabel lblNewLabel_5 = new JLabel("Total:");
-		lblNewLabel_5.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_5.setBounds(20, 69, 72, 26);
-		panel_2.add(lblNewLabel_5);
+		JLabel totalLabel = new JLabel("Total:");
+		totalLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		totalLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		totalLabel.setBounds(20, 69, 72, 26);
+		summaryPanel.add(totalLabel);
 		
-		JLabel priceTotal = new JLabel("Price Total");
-		priceTotal.setHorizontalAlignment(SwingConstants.RIGHT);
-		priceTotal.setFont(new Font("Tahoma", Font.BOLD, 14));
-		priceTotal.setBounds(156, 69, 79, 26);
-		panel_2.add(priceTotal);
+		JLabel totalAmountLabel = new JLabel("Price Total");
+		totalAmountLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		totalAmountLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		totalAmountLabel.setBounds(156, 69, 79, 26);
+		summaryPanel.add(totalAmountLabel);
 		
-		JButton btnNewButton_1 = new JButton("Proceed to Checkout");
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBackground(new Color(0, 0, 0));
-		btnNewButton_1.setBounds(10, 145, 225, 31);
-		panel_2.add(btnNewButton_1);
+		JButton checkoutButton = new JButton("Proceed to Checkout");
+		checkoutButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		checkoutButton.setForeground(new Color(255, 255, 255));
+		checkoutButton.setBackground(new Color(0, 0, 0));
+		checkoutButton.setBounds(10, 281, 284, 89);
+		contentPane.add(checkoutButton);
+		
 		setLocationRelativeTo(null);
+		setResizable(false);
 	}
 }

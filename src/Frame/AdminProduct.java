@@ -45,19 +45,19 @@ public class AdminProduct extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Add New Product");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Sylfaen", Font.BOLD, 16));
-		lblNewLabel.setBounds(90, 6, 179, 31);
-		contentPane.add(lblNewLabel);
+		JLabel titleLabel = new JLabel("Add New Product");
+		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		titleLabel.setFont(new Font("Sylfaen", Font.BOLD, 16));
+		titleLabel.setBounds(90, 6, 179, 31);
+		contentPane.add(titleLabel);
 
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 153, 102));
-		panel.setBounds(0, 0, 108, 389);
-		contentPane.add(panel);
-		panel.setLayout(null);
+		JPanel sidePanel = new JPanel();
+		sidePanel.setBackground(new Color(255, 153, 102));
+		sidePanel.setBounds(0, 0, 108, 389);
+		contentPane.add(sidePanel);
+		sidePanel.setLayout(null);
 		
-		JButton btnDashboard = new JButton("Dash\r\nBoard");
+		JButton btnDashboard = new JButton("Dashboard");
 		btnDashboard.setBounds(10, 27, 85, 35);
 		btnDashboard.setFocusable(false);
 		btnDashboard.addActionListener(new ActionListener() {
@@ -67,26 +67,26 @@ public class AdminProduct extends JFrame {
 				adminDashboard.setVisible(true);
 			}
 		});
-		panel.add(btnDashboard);
+		sidePanel.add(btnDashboard);
 		
 		JButton btnProduct = new JButton("Product");
 		btnProduct.setBounds(11, 73, 84, 35);
 		btnProduct.setFocusable(false);
-		panel.add(btnProduct);
+		sidePanel.add(btnProduct);
 
-		JLabel lblProduct = new JLabel("Product Name:");
-		lblProduct.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblProduct.setBounds(140, 50, 120, 25);
-		contentPane.add(lblProduct);
+		JLabel productNameLabel = new JLabel("Product Name:");
+		productNameLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		productNameLabel.setBounds(140, 50, 120, 25);
+		contentPane.add(productNameLabel);
 		
-		JTextField productEdit = new JTextField();
-		productEdit.setBounds(140, 75, 250, 25);
-		contentPane.add(productEdit);
+		JTextField productNameField = new JTextField();
+		productNameField.setBounds(140, 75, 250, 25);
+		contentPane.add(productNameField);
 		
-		JLabel lblType = new JLabel("Jewelry Type:");
-		lblType.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblType.setBounds(140, 110, 120, 25);
-		contentPane.add(lblType);
+		JLabel typeLabel = new JLabel("Jewelry Type:");
+		typeLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		typeLabel.setBounds(140, 110, 120, 25);
+		contentPane.add(typeLabel);
 		
 		String[] jewelryTypes = {
 			"Necklace", "Ring", "Bracelet", "Earrings", "Anklet"
@@ -96,43 +96,43 @@ public class AdminProduct extends JFrame {
 		typeComboBox.setBounds(140, 135, 250, 25);
 		contentPane.add(typeComboBox);
 		
-		JLabel lblPrice = new JLabel("Price (₱):");
-		lblPrice.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblPrice.setBounds(140, 170, 120, 25);
-		contentPane.add(lblPrice);
+		JLabel priceLabel = new JLabel("Price (₱):");
+		priceLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		priceLabel.setBounds(140, 170, 120, 25);
+		contentPane.add(priceLabel);
 		
-		JFormattedTextField priceEdit = new JFormattedTextField();
-		priceEdit.setBounds(140, 195, 120, 25);
-		contentPane.add(priceEdit);
+		JFormattedTextField priceField = new JFormattedTextField();
+		priceField.setBounds(140, 195, 120, 25);
+		contentPane.add(priceField);
 		
-		JLabel lblDescription = new JLabel("Description:");
-		lblDescription.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblDescription.setBounds(140, 230, 120, 25);
-		contentPane.add(lblDescription);
+		JLabel descriptionLabel = new JLabel("Description:");
+		descriptionLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		descriptionLabel.setBounds(140, 230, 120, 25);
+		contentPane.add(descriptionLabel);
 		
-		JTextArea descPane = new JTextArea();
-		descPane.setLineWrap(true);
-		descPane.setWrapStyleWord(true);
+		JTextArea descriptionArea = new JTextArea();
+		descriptionArea.setLineWrap(true);
+		descriptionArea.setWrapStyleWord(true);
 		
-		JScrollPane scrollPane = new JScrollPane(descPane);
+		JScrollPane scrollPane = new JScrollPane(descriptionArea);
 		scrollPane.setBounds(140, 255, 250, 70);
 		contentPane.add(scrollPane);
 		
-		JButton btnSubmit = new JButton("Add Product");
-		btnSubmit.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnSubmit.setBackground(new Color(255, 153, 102));
-		btnSubmit.setForeground(Color.WHITE);
-		btnSubmit.setFocusable(false);
-		btnSubmit.setBounds(140, 335, 120, 30);
-		contentPane.add(btnSubmit);
+		JButton submitButton = new JButton("Add Product");
+		submitButton.setFont(new Font("Tahoma", Font.BOLD, 12));
+		submitButton.setBackground(new Color(255, 153, 102));
+		submitButton.setForeground(Color.WHITE);
+		submitButton.setFocusable(false);
+		submitButton.setBounds(140, 335, 120, 30);
+		contentPane.add(submitButton);
 
-		btnSubmit.addActionListener(new ActionListener() {
+		submitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					String productName = productEdit.getText();
+					String productName = productNameField.getText();
 					String selectedType = (String) typeComboBox.getSelectedItem();
-					double price = Double.parseDouble(priceEdit.getText());
-					String description = descPane.getText();
+					double price = Double.parseDouble(priceField.getText());
+					String description = descriptionArea.getText();
 					
 					if (productName.isEmpty() || description.isEmpty()) {
 						JOptionPane.showMessageDialog(null, "Please fill all fields!");
@@ -144,10 +144,10 @@ public class AdminProduct extends JFrame {
 					productList.add(newProduct);
 					
 					// Clear fields after successful addition
-					productEdit.setText("");
+					productNameField.setText("");
 					typeComboBox.setSelectedIndex(0);
-					priceEdit.setText("");
-					descPane.setText("");
+					priceField.setText("");
+					descriptionArea.setText("");
 					
 					JOptionPane.showMessageDialog(null, "Product added successfully!");
 					

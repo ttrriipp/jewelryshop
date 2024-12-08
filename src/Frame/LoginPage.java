@@ -13,8 +13,8 @@ public class LoginPage extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textFieldUsername;
-	private JLabel lblNewLabel_2;
+	private JTextField usernameField;
+	private JLabel passwordLabel;
 	private JPasswordField passwordField;
 
 	/**
@@ -53,49 +53,49 @@ public class LoginPage extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Gintuan ni Lemon");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Copperplate Gothic Bold", Font.ITALIC, 25));
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBounds(106, 7, 293, 76);
-		contentPane.add(lblNewLabel);
+		JLabel titleLabel = new JLabel("Gintuan ni Lemon");
+		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		titleLabel.setFont(new Font("Copperplate Gothic Bold", Font.ITALIC, 25));
+		titleLabel.setForeground(new Color(255, 255, 255));
+		titleLabel.setBounds(106, 7, 293, 76);
+		contentPane.add(titleLabel);
 		
-		textFieldUsername = new JTextField();
-		textFieldUsername.setBounds(116, 109, 283, 25);
-		contentPane.add(textFieldUsername);
-		textFieldUsername.setColumns(10);
+		usernameField = new JTextField();
+		usernameField.setBounds(116, 109, 283, 25);
+		contentPane.add(usernameField);
+		usernameField.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("Username");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setBounds(116, 94, 92, 14);
-		contentPane.add(lblNewLabel_1);
+		JLabel usernameLabel = new JLabel("Username");
+		usernameLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		usernameLabel.setForeground(new Color(255, 255, 255));
+		usernameLabel.setBounds(116, 94, 92, 14);
+		contentPane.add(usernameLabel);
 		
-		lblNewLabel_2 = new JLabel("Password");
-		lblNewLabel_2.setForeground(new Color(255, 255, 255));
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2.setBounds(115, 145, 82, 14);
-		contentPane.add(lblNewLabel_2);
+		passwordLabel = new JLabel("Password");
+		passwordLabel.setForeground(new Color(255, 255, 255));
+		passwordLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		passwordLabel.setBounds(115, 145, 82, 14);
+		contentPane.add(passwordLabel);
 		
-		JButton btnNewButton = new JButton("Customer Store");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton customerStoreButton = new JButton("Customer Store");
+		customerStoreButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				StorePage storePage = new StorePage();
-				storePage.setVisible(true);
-				dispose();
+					StorePage storePage = new StorePage();
+					storePage.setVisible(true);
+					dispose();
 			}
 		});
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBackground(new Color(255, 153, 153));
-		btnNewButton.setBounds(116, 209, 130, 46);
-		btnNewButton.setFocusable(false);
-		contentPane.add(btnNewButton);
+		customerStoreButton.setForeground(new Color(255, 255, 255));
+		customerStoreButton.setBackground(new Color(255, 153, 153));
+		customerStoreButton.setBounds(116, 209, 130, 46);
+		customerStoreButton.setFocusable(false);
+		contentPane.add(customerStoreButton);
 		
-		JButton btnLogin = new JButton("Login");
-		btnLogin.addActionListener(new ActionListener() {
+		JButton loginButton = new JButton("Login");
+		loginButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String username = textFieldUsername.getText();
+				String username = usernameField.getText();
 				String password = String.valueOf(passwordField.getPassword());
 
 				if(loginInfo.containsKey(username)){
@@ -114,21 +114,21 @@ public class LoginPage extends JFrame{
 					JOptionPane.showMessageDialog(null, "Please input all fields!", "Blank Fields", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
-		btnLogin.setForeground(new Color(255, 255, 255));
-		btnLogin.setBackground(new Color(0, 51, 102));
-		btnLogin.setBounds(269, 209, 130, 46);
-		btnLogin.setFocusable(false);
-		contentPane.add(btnLogin);
+		loginButton.setForeground(new Color(255, 255, 255));
+		loginButton.setBackground(new Color(0, 51, 102));
+		loginButton.setBounds(269, 209, 130, 46);
+		loginButton.setFocusable(false);
+		contentPane.add(loginButton);
 		
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setBounds(71, 25, 50, 50);
-		contentPane.add(lblNewLabel_3);
-		lblNewLabel_3.setIcon(new ImageIcon("img/diamond_size.png"));
+		JLabel leftLogoLabel = new JLabel("");
+		leftLogoLabel.setBounds(71, 25, 50, 50);
+		contentPane.add(leftLogoLabel);
+		leftLogoLabel.setIcon(new ImageIcon("img/diamond_size.png"));
 		
-		JLabel lblNewLabel_3_1 = new JLabel("New label");
-		lblNewLabel_3_1.setIcon(new ImageIcon("img/diamond_size.png"));
-		lblNewLabel_3_1.setBounds(387, 25, 50, 50);
-		contentPane.add(lblNewLabel_3_1);
+		JLabel rightLogoLabel = new JLabel("");
+		rightLogoLabel.setIcon(new ImageIcon("img/diamond_size.png"));
+		rightLogoLabel.setBounds(387, 25, 50, 50);
+		contentPane.add(rightLogoLabel);
 		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(116, 162, 283, 23);
