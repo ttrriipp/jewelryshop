@@ -16,6 +16,7 @@ import javax.swing.JTextArea;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
 
 public class ProductDetails extends JFrame {
 
@@ -82,7 +83,7 @@ public class ProductDetails extends JFrame {
 		returnButton.setBounds(25, 22, 186, 30);
 		headerPanel.add(returnButton);
 		
-		JLabel priceLabel = new JLabel(String.valueOf(price));
+		JLabel priceLabel = new JLabel(NumberFormat.getCurrencyInstance().format(price));
 		priceLabel.setForeground(new Color(51, 51, 255));
 		priceLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		priceLabel.setBounds(490, 180, 143, 26);
