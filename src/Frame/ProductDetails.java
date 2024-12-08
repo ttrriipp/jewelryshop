@@ -17,6 +17,7 @@ import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
+import javax.swing.JOptionPane;
 
 public class ProductDetails extends JFrame {
 
@@ -104,6 +105,12 @@ public class ProductDetails extends JFrame {
 		addToCartButton.setBackground(new Color(0, 0, 0));
 		addToCartButton.setBounds(490, 286, 169, 36);
 		addToCartButton.setFocusable(false);
+		addToCartButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Product product = new Product(name, price, description, type);
+				CartPage.addToCart(product, 1);
+			}
+		});
 		contentPane.add(addToCartButton);
 		setLocationRelativeTo(null);
 	}
