@@ -38,7 +38,7 @@ public class ProductDetails extends JFrame {
 	 * Create the frame.
 	 */
 	public ProductDetails() {
-		setTitle("Product Details");
+		setTitle("Model.Product Details");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 827, 525);
 		contentPane = new JPanel();
@@ -52,7 +52,7 @@ public class ProductDetails extends JFrame {
 		lblNewLabel.setBounds(25, 113, 434, 310);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Product Name");
+		JLabel lblNewLabel_1 = new JLabel("Model.Product Name");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 24));
 		lblNewLabel_1.setBounds(507, 114, 254, 48);
 		contentPane.add(lblNewLabel_1);
@@ -101,7 +101,7 @@ public class ProductDetails extends JFrame {
 		
 		JTextArea txtrProductDescription = new JTextArea();
 		txtrProductDescription.setFont(new Font("Monospaced", Font.PLAIN, 14));
-		txtrProductDescription.setText("Product Description");
+		txtrProductDescription.setText("Model.Product Description");
 		txtrProductDescription.setEditable(false);
 		txtrProductDescription.setBackground(SystemColor.menu);
 		txtrProductDescription.setBounds(490, 217, 271, 58);

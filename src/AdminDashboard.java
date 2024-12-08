@@ -1,3 +1,5 @@
+import Model.AdminCredentials;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -20,6 +22,9 @@ public class AdminDashboard extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JFrame frame;
+	private String loggedInUsername;
+	private String loggedInPassword;
+
 
 	/**
 	 * Launch the application.
@@ -28,7 +33,7 @@ public class AdminDashboard extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AdminDashboard frame = new AdminDashboard();
+					AdminDashboard frame = new AdminDashboard("admin1", "adminpass1");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,12 +46,16 @@ public class AdminDashboard extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AdminDashboard() {
+	public AdminDashboard(String username, String password) {
+		this.loggedInUsername = username;
+		this.loggedInPassword = password;
+		
 		setTitle("Admin Dashboard");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 555, 420);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBackground(new Color(255, 255, 255));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -74,9 +83,8 @@ public class AdminDashboard extends JFrame {
 		btnProduct.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				AdminProduct adminProduct = new AdminProduct();
+				AdminProduct adminProduct = new AdminProduct(loggedInUsername, loggedInPassword);
 				adminProduct.setVisible(true);
-
 			}
 		});
 		
@@ -85,7 +93,7 @@ public class AdminDashboard extends JFrame {
 		lblNewLabel_1.setBounds(134, 48, 122, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		textField = new JTextField();
+		textField = new JTextField(loggedInUsername);
 		textField.setEditable(false);
 		textField.setBounds(134, 63, 171, 26);
 		contentPane.add(textField);
@@ -96,7 +104,7 @@ public class AdminDashboard extends JFrame {
 		lblNewLabel_2.setBounds(135, 96, 79, 14);
 		contentPane.add(lblNewLabel_2);
 		
-		textField_1 = new JTextField();
+		textField_1 = new JTextField(loggedInPassword);
 		textField_1.setEditable(false);
 		textField_1.setBounds(134, 112, 171, 26);
 		contentPane.add(textField_1);

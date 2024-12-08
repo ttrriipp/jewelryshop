@@ -1,3 +1,5 @@
+import Model.Product;
+
 import java.awt.*;
 
 import javax.swing.*;
@@ -11,6 +13,9 @@ public class AdminProduct extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private static LinkedList<Product> productList = new LinkedList<>();
+	private String loggedInUsername;
+	private String loggedInPassword;
+
 
 	// Initialize default products
 	static {
@@ -22,26 +27,13 @@ public class AdminProduct extends JFrame {
 		productList.add(new Product("Gold Necklace", 499.99, "18k gold chain necklace", "Necklace"));
 	}
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AdminProduct frame = new AdminProduct();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public AdminProduct() {
+	public AdminProduct(String loggedInUsername, String loggedInPassword) {
+		this.loggedInUsername = loggedInUsername;
+		this.loggedInPassword = loggedInPassword;
 		setTitle("Admin Dashboard");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 555, 420);
@@ -72,7 +64,7 @@ public class AdminProduct extends JFrame {
 		btnDashboard.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				AdminDashboard adminDashboard = new AdminDashboard();
+				AdminDashboard adminDashboard = new AdminDashboard(loggedInUsername, loggedInPassword);
 				adminDashboard.setVisible(true);
 			}
 		});
@@ -159,7 +151,7 @@ public class AdminProduct extends JFrame {
 					priceEdit.setText("");
 					descPane.setText("");
 					
-					JOptionPane.showMessageDialog(null, "Product added successfully!");
+					JOptionPane.showMessageDialog(null, "Model.Product added successfully!");
 					
 				} catch (NumberFormatException ex) {
 					JOptionPane.showMessageDialog(null, "Please enter a valid price!");

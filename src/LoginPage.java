@@ -1,3 +1,5 @@
+import Model.AdminCredentials;
+
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -97,7 +99,7 @@ public class LoginPage extends JFrame{
 				if(loginInfo.containsKey(username)){
 					if(loginInfo.get(username).equals(password)) {
 						dispose();
-						AdminDashboard adminDashboard = new AdminDashboard();
+						AdminDashboard adminDashboard = new AdminDashboard(username, password);
 						adminDashboard.setVisible(true);
 					} else if (!password.isEmpty() & !loginInfo.get(username).equals(password))
 						JOptionPane.showMessageDialog(null, "Wrong Password!", "Wrong Password", JOptionPane.ERROR_MESSAGE);

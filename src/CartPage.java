@@ -87,7 +87,7 @@ public class CartPage extends JFrame {
 		lblNewLabel_1.setBounds(10, 11, 83, 74);
 		panel_1.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Product Title");
+		JLabel lblNewLabel_2 = new JLabel("Model.Product Title");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblNewLabel_2.setBounds(103, 23, 142, 21);
 		panel_1.add(lblNewLabel_2);
