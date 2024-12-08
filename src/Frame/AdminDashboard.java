@@ -23,9 +23,6 @@ public class AdminDashboard extends JFrame {
 	private JPanel contentPane;
 	private JTextField usernameField;
 	private JTextField passwordField;
-	private String loggedInUsername;
-	private String loggedInPassword;
-	private HashMap<String, String> loginInfo = new HashMap<String, String>();
 
 	/**
 	 * Launch the application.
@@ -46,10 +43,7 @@ public class AdminDashboard extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AdminDashboard(String username, String password) {
-		this.loggedInUsername = username;
-		this.loggedInPassword = password;
-		
+	public AdminDashboard(String loggedInUsername, String loggedInPassword) {
 		setTitle("Admin Dashboard");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 555, 420);

@@ -23,23 +23,12 @@ public class ProductDetails extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ProductDetails frame = new ProductDetails();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
 	 */
-	public ProductDetails() {
+	public ProductDetails(String name, double price, String description, String type) {
 		setTitle("Product Details");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 827, 525);
@@ -49,12 +38,12 @@ public class ProductDetails extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel productImageLabel = new JLabel("New label");
+		JLabel productImageLabel = new JLabel("");
 		productImageLabel.setIcon(new ImageIcon("img/placeholderbig.jpg"));
 		productImageLabel.setBounds(25, 113, 434, 310);
 		contentPane.add(productImageLabel);
 		
-		JLabel productNameLabel = new JLabel("Product Name");
+		JLabel productNameLabel = new JLabel(name);
 		productNameLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 24));
 		productNameLabel.setBounds(507, 114, 254, 48);
 		contentPane.add(productNameLabel);
@@ -95,7 +84,7 @@ public class ProductDetails extends JFrame {
 		returnButton.setBounds(25, 22, 186, 30);
 		headerPanel.add(returnButton);
 		
-		JLabel priceLabel = new JLabel("Price");
+		JLabel priceLabel = new JLabel(String.valueOf(price));
 		priceLabel.setForeground(new Color(51, 51, 255));
 		priceLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		priceLabel.setBounds(490, 180, 143, 26);
@@ -103,7 +92,7 @@ public class ProductDetails extends JFrame {
 		
 		JTextArea descriptionArea = new JTextArea();
 		descriptionArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
-		descriptionArea.setText("Product Description");
+		descriptionArea.setText(description);
 		descriptionArea.setEditable(false);
 		descriptionArea.setBackground(SystemColor.menu);
 		descriptionArea.setBounds(490, 217, 271, 58);

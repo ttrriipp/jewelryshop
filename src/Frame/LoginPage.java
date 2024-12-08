@@ -34,13 +34,11 @@ public class LoginPage extends JFrame{
 		});
 	}
 
-	HashMap<String, String> loginInfo = new HashMap<String, String>();
 	/**
 	 * Create the frame.
 	 */
 
 	public LoginPage(HashMap<String, String> loginInfoOriginal) {
-		loginInfo = loginInfoOriginal;
 		setForeground(new Color(0, 128, 255));
 		setFont(new Font("Castellar", Font.BOLD, 17));
 		setTitle("Gintuan ni Lemon");
@@ -90,7 +88,8 @@ public class LoginPage extends JFrame{
 		customerStoreButton.setBounds(116, 209, 130, 46);
 		customerStoreButton.setFocusable(false);
 		contentPane.add(customerStoreButton);
-		
+
+
 		JButton loginButton = new JButton("Login");
 		loginButton.addActionListener(new ActionListener() {
 			@Override
@@ -98,19 +97,17 @@ public class LoginPage extends JFrame{
 				String username = usernameField.getText();
 				String password = String.valueOf(passwordField.getPassword());
 
-				if(loginInfo.containsKey(username)){
-					if(loginInfo.get(username).equals(password)) {
+				if (loginInfoOriginal.containsKey(username)) {
+					if (loginInfoOriginal.get(username).equals(password)) {
 						dispose();
 						AdminDashboard adminDashboard = new AdminDashboard(username, password);
 						adminDashboard.setVisible(true);
-					} else if (!password.isEmpty() & !loginInfo.get(username).equals(password))
+					} else if (!password.isEmpty() & !loginInfoOriginal.get(username).equals(password))
 						JOptionPane.showMessageDialog(null, "Wrong Password!", "Wrong Password", JOptionPane.ERROR_MESSAGE);
-				} else if (!username.isEmpty() & !loginInfo.containsKey(username) & !password.isEmpty()){
+				} else if (!username.isEmpty() & !loginInfoOriginal.containsKey(username) & !password.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Wrong Username!", "Wrong Username", JOptionPane.ERROR_MESSAGE);
 				}
-				if(username.isEmpty())
-					JOptionPane.showMessageDialog(null, "Please input all fields!", "Blank Fields", JOptionPane.INFORMATION_MESSAGE);
-				else if (password.isEmpty())
+				if (username.isEmpty() || password.isEmpty())
 					JOptionPane.showMessageDialog(null, "Please input all fields!", "Blank Fields", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});

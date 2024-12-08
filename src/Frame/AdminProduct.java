@@ -15,11 +15,8 @@ public class AdminProduct extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private static LinkedList<Product> productList = new LinkedList<>();
-	private String loggedInUsername;
-	private String loggedInPassword;
 
-
-	// Initialize default products
+    // Initialize default products
 	static {
 		productList.add(new Product("Silver Necklace", 299.99, "Elegant silver necklace with pendant", "Necklace"));
 		productList.add(new Product("Gold Ring", 399.99, "Classic gold wedding band", "Ring"));
@@ -33,8 +30,6 @@ public class AdminProduct extends JFrame {
 	 * Create the frame.
 	 */
 	public AdminProduct(String loggedInUsername, String loggedInPassword) {
-		this.loggedInUsername = loggedInUsername;
-		this.loggedInPassword = loggedInPassword;
 		setTitle("Admin Dashboard");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 555, 420);
@@ -87,12 +82,9 @@ public class AdminProduct extends JFrame {
 		typeLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		typeLabel.setBounds(140, 110, 120, 25);
 		contentPane.add(typeLabel);
-		
-		String[] jewelryTypes = {
-			"Necklace", "Ring", "Bracelet", "Earrings", "Anklet"
-		};
-		
-		JComboBox<String> typeComboBox = new JComboBox<>(jewelryTypes);
+
+        String[] jewelryTypes = {"Necklace", "Ring", "Bracelet", "Earrings", "Anklet"};
+        JComboBox<String> typeComboBox = new JComboBox<>(jewelryTypes);
 		typeComboBox.setBounds(140, 135, 250, 25);
 		contentPane.add(typeComboBox);
 		

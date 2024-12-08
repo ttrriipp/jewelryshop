@@ -22,8 +22,6 @@ public class StorePage extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	
-
 	private JLabel productImage1;
 	private JLabel productImage2;
 	private JLabel productImage3;
@@ -40,6 +38,15 @@ public class StorePage extends JFrame {
 	private static final int PRODUCTS_PER_PAGE = 6;
 	private JButton previousButton;
 	private JButton nextButton;
+	private int itemIndex;
+	private JButton detailsButton1;
+	private JButton detailsButton_1;
+	private JButton detailsButton_1_1;
+	private JButton detailsButton_2;
+	private JButton detailsButton_2_1;
+	private JButton detailsButton_2_2;
+
+	LinkedList<Product> products = AdminProduct.getProductList();
 
 	/**
 	 * Launch the application.
@@ -71,7 +78,7 @@ public class StorePage extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel productPanel1 = new JPanel();    // Changed from panel
+		JPanel productPanel1 = new JPanel();
 		productPanel1.setBackground(new Color(255, 255, 255));
 		productPanel1.setBounds(23, 58, 193, 196);
 		contentPane.add(productPanel1);
@@ -88,14 +95,7 @@ public class StorePage extends JFrame {
 		productName1.setBounds(30, 140, 129, 18);
 		productPanel1.add(productName1);
 		
-		JButton detailsButton1 = new JButton("More Details");
-		detailsButton1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				ProductDetails details = new ProductDetails();
-				details.setVisible(true);
-			}
-		});
+		detailsButton1 = new JButton("More Details");
 		detailsButton1.setForeground(new Color(255, 255, 255));
 		detailsButton1.setBackground(new Color(0, 0, 0));
 		detailsButton1.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -125,15 +125,7 @@ public class StorePage extends JFrame {
 		productName2.setBounds(30, 140, 129, 18);
 		panel_1.add(productName2);
 		
-		JButton detailsButton_1 = new JButton("More Details");
-		detailsButton_1.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				ProductDetails details = new ProductDetails();
-				details.setVisible(true);
-			}
-		});
+		detailsButton_1 = new JButton("More Details");
 		detailsButton_1.setForeground(Color.WHITE);
 		detailsButton_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		detailsButton_1.setBackground(Color.BLACK);
@@ -157,15 +149,7 @@ public class StorePage extends JFrame {
 		productName3.setBounds(30, 140, 129, 18);
 		panel_1_1.add(productName3);
 		
-		JButton detailsButton_1_1 = new JButton("More Details");
-		detailsButton_1_1.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				ProductDetails details = new ProductDetails();
-				details.setVisible(true);
-			}
-		});
+		detailsButton_1_1 = new JButton("More Details");
 		detailsButton_1_1.setForeground(Color.WHITE);
 		detailsButton_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		detailsButton_1_1.setBackground(Color.BLACK);
@@ -189,15 +173,7 @@ public class StorePage extends JFrame {
 		productName4.setBounds(30, 140, 129, 18);
 		panel_2.add(productName4);
 		
-		JButton detailsButton_2 = new JButton("More Details");
-		detailsButton_2.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				ProductDetails details = new ProductDetails();
-				details.setVisible(true);
-			}
-		});
+		detailsButton_2 = new JButton("More Details");
 		detailsButton_2.setForeground(Color.WHITE);
 		detailsButton_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		detailsButton_2.setBackground(Color.BLACK);
@@ -221,15 +197,8 @@ public class StorePage extends JFrame {
 		productName5.setBounds(30, 140, 129, 18);
 		panel_2_1.add(productName5);
 		
-		JButton detailsButton_2_1 = new JButton("More Details");
-		detailsButton_2_1.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				ProductDetails details = new ProductDetails();
-				details.setVisible(true);
-			}
-		});
+		detailsButton_2_1 = new JButton("More Details");
+
 		detailsButton_2_1.setForeground(Color.WHITE);
 		detailsButton_2_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		detailsButton_2_1.setBackground(Color.BLACK);
@@ -253,15 +222,7 @@ public class StorePage extends JFrame {
 		productName6.setBounds(30, 140, 129, 18);
 		panel_2_2.add(productName6);
 		
-		JButton detailsButton_2_2 = new JButton("More Details");
-		detailsButton_2_2.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				ProductDetails details = new ProductDetails();
-					details.setVisible(true);
-			}
-		});
+		detailsButton_2_2 = new JButton("More Details");
 		detailsButton_2_2.setForeground(Color.WHITE);
 		detailsButton_2_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		detailsButton_2_2.setBackground(Color.BLACK);
@@ -326,19 +287,37 @@ public class StorePage extends JFrame {
 	}
 
 	private void updateProductDisplay() {
-		LinkedList<Product> products = AdminProduct.getProductList();
-
-		// Calculate start and end indices for current page
-		int startIndex = currentPage * PRODUCTS_PER_PAGE;
-		int endIndex = Math.min(startIndex + PRODUCTS_PER_PAGE, products.size());
-
-		// Clear all labels first
+		// Clear all labels and action listeners first
 		productName1.setText("");
 		productName2.setText("");
 		productName3.setText("");
 		productName4.setText("");
 		productName5.setText("");
 		productName6.setText("");
+
+		// Remove existing action listeners
+		for (ActionListener al : detailsButton1.getActionListeners()) {
+			detailsButton1.removeActionListener(al);
+		}
+		for (ActionListener al : detailsButton_1.getActionListeners()) {
+			detailsButton_1.removeActionListener(al);
+		}
+		for (ActionListener al : detailsButton_1_1.getActionListeners()) {
+			detailsButton_1_1.removeActionListener(al);
+		}
+		for (ActionListener al : detailsButton_2.getActionListeners()) {
+			detailsButton_2.removeActionListener(al);
+		}
+		for (ActionListener al : detailsButton_2_1.getActionListeners()) {
+			detailsButton_2_1.removeActionListener(al);
+		}
+		for (ActionListener al : detailsButton_2_2.getActionListeners()) {
+			detailsButton_2_2.removeActionListener(al);
+		}
+
+		// Calculate start and end indices for current page
+		int startIndex = currentPage * PRODUCTS_PER_PAGE;
+		int endIndex = Math.min(startIndex + PRODUCTS_PER_PAGE, products.size());
 
 		productImage1.setIcon(new ImageIcon("img/placeholder.jpg"));
 		productImage2.setIcon(new ImageIcon("img/placeholder.jpg"));
@@ -348,12 +327,12 @@ public class StorePage extends JFrame {
 		productImage6.setIcon(new ImageIcon("img/placeholder.jpg"));
 
 		JLabel[] imageLabels = {
-			productImage1,    // First product image
-			productImage2,    // Second product image
-			productImage3,    // Third product image
-			productImage4,    // Fourth product image
-			productImage5,    // Fifth product image
-			productImage6     // Sixth product image
+			productImage1,
+			productImage2,
+			productImage3,
+			productImage4,
+			productImage5,
+			productImage6
 		};
 
 		// Update navigation buttons
@@ -374,21 +353,92 @@ public class StorePage extends JFrame {
 				switch (displayIndex) {
 					case 0:
 						productName1.setText(product.getName());
+						detailsButton1.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								dispose();
+								String productName = String.valueOf(product.getName());
+								double productPrice = product.getPrice();
+								String productDescription = String.valueOf(product.getDescription());
+								String productType = String.valueOf(product.getType());
+								ProductDetails details = new ProductDetails(productName, productPrice, productDescription, productType);
+								details.setVisible(true);
+							}
+						});
 						break;
 					case 1:
 						productName2.setText(product.getName());
+						detailsButton_1.addActionListener(new ActionListener() {
+							@Override
+							public void actionPerformed(ActionEvent e) {
+								dispose();
+								String productName = String.valueOf(product.getName());
+								double productPrice = product.getPrice();
+								String productDescription = String.valueOf(product.getDescription());
+								String productType = String.valueOf(product.getType());
+								ProductDetails details = new ProductDetails(productName, productPrice, productDescription, productType);
+								details.setVisible(true);
+							}
+						});
 						break;
 					case 2:
 						productName3.setText(product.getName());
+						detailsButton_1_1.addActionListener(new ActionListener() {
+							@Override
+							public void actionPerformed(ActionEvent e) {
+								dispose();
+								String productName = String.valueOf(product.getName());
+								double productPrice = product.getPrice();
+								String productDescription = String.valueOf(product.getDescription());
+								String productType = String.valueOf(product.getType());
+								ProductDetails details = new ProductDetails(productName, productPrice, productDescription, productType);
+								details.setVisible(true);
+							}
+						});
 						break;
 					case 3:
 						productName4.setText(product.getName());
+						detailsButton_2.addActionListener(new ActionListener() {
+							@Override
+							public void actionPerformed(ActionEvent e) {
+								dispose();
+								String productName = String.valueOf(product.getName());
+								double productPrice = product.getPrice();
+								String productDescription = String.valueOf(product.getDescription());
+								String productType = String.valueOf(product.getType());
+								ProductDetails details = new ProductDetails(productName, productPrice, productDescription, productType);
+								details.setVisible(true);
+							}
+						});
 						break;
 					case 4:
 						productName5.setText(product.getName());
+						detailsButton_2_1.addActionListener(new ActionListener() {
+							@Override
+							public void actionPerformed(ActionEvent e) {
+								dispose();
+								String productName = String.valueOf(product.getName());
+								double productPrice = product.getPrice();
+								String productDescription = String.valueOf(product.getDescription());
+								String productType = String.valueOf(product.getType());
+								ProductDetails details = new ProductDetails(productName, productPrice, productDescription, productType);
+								details.setVisible(true);
+							}
+						});
 						break;
 					case 5:
 						productName6.setText(product.getName());
+						detailsButton_2_2.addActionListener(new ActionListener() {
+							@Override
+							public void actionPerformed(ActionEvent e) {
+								dispose();
+								String productName = String.valueOf(product.getName());
+								double productPrice = product.getPrice();
+								String productDescription = String.valueOf(product.getDescription());
+								String productType = String.valueOf(product.getType());
+								ProductDetails details = new ProductDetails(productName, productPrice, productDescription, productType);
+								details.setVisible(true);
+							}
+						});
 						break;
 				}
 			}
