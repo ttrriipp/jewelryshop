@@ -1,5 +1,7 @@
 package Frame;
 
+import Model.Product;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -21,14 +23,10 @@ public class ProductDetails extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-
-
-	/**
 	 * Create the frame.
 	 */
 	public ProductDetails(String name, double price, String description, String type) {
+		String imagePath = "img/" + type + ".png";
 		setTitle("Product Details");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 827, 525);
@@ -39,7 +37,7 @@ public class ProductDetails extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel productImageLabel = new JLabel("");
-		productImageLabel.setIcon(new ImageIcon("img/placeholderbig.jpg"));
+		productImageLabel.setIcon(new ImageIcon(imagePath));
 		productImageLabel.setBounds(25, 113, 434, 310);
 		contentPane.add(productImageLabel);
 		
