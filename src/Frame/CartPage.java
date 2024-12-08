@@ -139,6 +139,7 @@ public class CartPage extends JFrame {
 		summaryPanel.add(priceTotalLabel);
 		
 		JButton checkoutButton = new JButton("Proceed to Checkout");
+		checkoutButton.setFocusable(false);
 		checkoutButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		checkoutButton.setForeground(new Color(255, 255, 255));
 		checkoutButton.setBackground(new Color(0, 0, 0));
