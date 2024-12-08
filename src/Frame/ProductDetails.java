@@ -49,7 +49,7 @@ public class ProductDetails extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel productImageLabel = new JLabel("");
+		JLabel productImageLabel = new JLabel("New label");
 		productImageLabel.setIcon(new ImageIcon("img/placeholderbig.jpg"));
 		productImageLabel.setBounds(25, 113, 434, 310);
 		contentPane.add(productImageLabel);
@@ -115,6 +115,7 @@ public class ProductDetails extends JFrame {
 		addToCartButton.setForeground(new Color(255, 255, 255));
 		addToCartButton.setBackground(new Color(0, 0, 0));
 		addToCartButton.setBounds(490, 286, 169, 36);
+		addToCartButton.setFocusable(false);
 		contentPane.add(addToCartButton);
 		setLocationRelativeTo(null);
 	}
