@@ -14,11 +14,25 @@ import javax.swing.SwingConstants;
 import javax.swing.JSpinner;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import Model.CartStack;
+import Model.CartItem;
+import Model.Product;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.SpinnerNumberModel;
+import java.awt.Dimension;
+import java.text.NumberFormat;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.JScrollPane;
 
 public class CartPage extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private static CartStack cartStack = new CartStack();
+	private JPanel cartItemsPanel;
+	private JLabel priceTotalLabel;
 
 	/**
 	 * Launch the application.
@@ -77,42 +91,17 @@ public class CartPage extends JFrame {
 		cartTitleLabel.setBounds(22, 90, 174, 41);
 		contentPane.add(cartTitleLabel);
 		
-		JPanel productPanel = new JPanel();
-		productPanel.setBackground(new Color(255, 255, 255));
-		productPanel.setBounds(22, 132, 430, 96);
-		contentPane.add(productPanel);
-		productPanel.setLayout(null);
+		cartItemsPanel = new JPanel();
+		cartItemsPanel.setBackground(new Color(255, 255, 255));
+		cartItemsPanel.setLayout(new BoxLayout(cartItemsPanel, BoxLayout.Y_AXIS));
 		
-		JLabel productImageLabel = new JLabel("New label");
-		productImageLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		productImageLabel.setIcon(new ImageIcon("img/placeholder.jpg"));
-		productImageLabel.setBounds(10, 11, 83, 74);
-		productPanel.add(productImageLabel);
+		JScrollPane scrollPane = new JScrollPane(cartItemsPanel);
+		scrollPane.setBounds(22, 132, 430, 240);
+		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setBorder(null);
 		
-		JLabel productTitleLabel = new JLabel("Product Title");
-		productTitleLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
-		productTitleLabel.setBounds(103, 23, 142, 21);
-		productPanel.add(productTitleLabel);
-		
-		JLabel priceLabel = new JLabel("Price");
-		priceLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
-		priceLabel.setForeground(new Color(0, 51, 204));
-		priceLabel.setBounds(105, 45, 66, 14);
-		productPanel.add(priceLabel);
-		
-		JSpinner quantitySpinner = new JSpinner();
-		quantitySpinner.setBounds(310, 35, 56, 27);
-		productPanel.add(quantitySpinner);
-		
-		JButton deleteButton = new JButton("");
-		deleteButton.setBackground(new Color(255, 255, 255));
-		deleteButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		deleteButton.setIcon(new ImageIcon("img/trash.png"));
-		deleteButton.setBounds(386, 33, 30, 30);
-		productPanel.add(deleteButton);
+		contentPane.add(scrollPane);
 		
 		JPanel summaryPanel = new JPanel();
 		summaryPanel.setBackground(new Color(255, 255, 255));
@@ -132,7 +121,7 @@ public class CartPage extends JFrame {
 		totalLabel.setBounds(20, 69, 72, 26);
 		summaryPanel.add(totalLabel);
 		
-		JLabel priceTotalLabel = new JLabel("Price Total");
+		priceTotalLabel = new JLabel("Price Total");
 		priceTotalLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		priceTotalLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		priceTotalLabel.setBounds(156, 69, 79, 26);
@@ -146,5 +135,85 @@ public class CartPage extends JFrame {
 		checkoutButton.setBounds(10, 145, 225, 31);
 		summaryPanel.add(checkoutButton);
 		setLocationRelativeTo(null);
+		
+		updateCartDisplay();
+	}
+
+	public static void addToCart(Product product, int quantity) {
+		cartStack.push(new CartItem(product, quantity));
+	}
+
+	private void updateCartDisplay() {
+		cartItemsPanel.removeAll();
+		double total = 0;
+		
+		CartItem[] items = cartStack.getAllItems();
+		for (CartItem item : items) {
+			JPanel productPanel = createProductPanel(item);
+			cartItemsPanel.add(productPanel);
+			cartItemsPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+			total += item.getTotal();
+		}
+		
+		priceTotalLabel.setText(NumberFormat.getCurrencyInstance().format(total));
+		cartItemsPanel.revalidate();
+		cartItemsPanel.repaint();
+	}
+
+	private JPanel createProductPanel(CartItem item) {
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
+		panel.setPreferredSize(new Dimension(410, 96));
+		panel.setMaximumSize(new Dimension(410, 96));
+		panel.setMinimumSize(new Dimension(410, 96));
+		panel.setLayout(null);
+		
+		// Product Image
+		JLabel productImageLabel = new JLabel();
+		productImageLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		productImageLabel.setIcon(new ImageIcon("img/" + item.getProduct().getType() + ".png"));
+		productImageLabel.setBounds(10, 11, 83, 74);
+		panel.add(productImageLabel);
+		
+		// Product Title
+		JLabel productTitleLabel = new JLabel(item.getProduct().getName());
+		productTitleLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+		productTitleLabel.setBounds(103, 23, 142, 21);
+		panel.add(productTitleLabel);
+		
+		// Price
+		JLabel priceLabel = new JLabel(String.format(NumberFormat.getCurrencyInstance().format((item.getProduct().getPrice()))));
+		priceLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
+		priceLabel.setForeground(new Color(0, 51, 204));
+		priceLabel.setBounds(105, 45, 66, 14);
+		panel.add(priceLabel);
+		
+		// Quantity Spinner (1-10 range)
+		JSpinner quantitySpinner = new JSpinner(new SpinnerNumberModel(item.getQuantity(), 1, 10, 1));
+		quantitySpinner.setBounds(310, 35, 56, 27);
+		quantitySpinner.addChangeListener(e -> {
+			item.setQuantity((Integer) quantitySpinner.getValue());
+			updateCartDisplay();
+		});
+		
+		// Add a JLabel for "Quantity:"
+		JLabel quantityLabel = new JLabel("Quantity:");
+		quantityLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		quantityLabel.setBounds(250, 40, 60, 14);
+		panel.add(quantityLabel);
+		panel.add(quantitySpinner);
+		
+		// Delete Button
+		JButton deleteButton = new JButton("");
+		deleteButton.setBackground(new Color(255, 255, 255));
+		deleteButton.setIcon(new ImageIcon("img/trash.png"));
+		deleteButton.setBounds(386, 33, 30, 30);
+		deleteButton.addActionListener(e -> {
+			CartItem poppedItem = cartStack.pop();
+			updateCartDisplay();
+		});
+		panel.add(deleteButton);
+		
+		return panel;
 	}
 }

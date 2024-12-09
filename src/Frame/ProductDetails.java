@@ -16,6 +16,8 @@ import javax.swing.JTextArea;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
+import javax.swing.JOptionPane;
 
 public class ProductDetails extends JFrame {
 
@@ -82,7 +84,7 @@ public class ProductDetails extends JFrame {
 		returnButton.setBounds(25, 22, 186, 30);
 		headerPanel.add(returnButton);
 		
-		JLabel priceLabel = new JLabel(String.valueOf(price));
+		JLabel priceLabel = new JLabel(NumberFormat.getCurrencyInstance().format(price));
 		priceLabel.setForeground(new Color(51, 51, 255));
 		priceLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		priceLabel.setBounds(490, 180, 143, 26);
@@ -103,6 +105,12 @@ public class ProductDetails extends JFrame {
 		addToCartButton.setBackground(new Color(0, 0, 0));
 		addToCartButton.setBounds(490, 286, 169, 36);
 		addToCartButton.setFocusable(false);
+		addToCartButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Product product = new Product(name, price, description, type);
+				CartPage.addToCart(product, 1);
+			}
+		});
 		contentPane.add(addToCartButton);
 		setLocationRelativeTo(null);
 	}
