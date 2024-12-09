@@ -3,7 +3,6 @@ package Frame;
 import Model.AdminCredentials;
 import Model.Product;
 
-import java.awt.EventQueue;
 import java.util.LinkedList;
 
 import javax.swing.JFrame;

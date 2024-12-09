@@ -117,6 +117,7 @@ public class CartPage extends JFrame {
 		checkoutButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				//Check the cart if empty or not
 				if (cartStack.isEmpty()) {
 					JOptionPane.showMessageDialog(null, 
 						"Your cart is empty!", 
@@ -170,6 +171,7 @@ public class CartPage extends JFrame {
 		cartItemsPanel.repaint();
 	}
 
+	//For adding products
 	private JPanel createProductPanel(CartItem item) {
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
@@ -177,43 +179,37 @@ public class CartPage extends JFrame {
 		panel.setMaximumSize(new Dimension(410, 96));
 		panel.setMinimumSize(new Dimension(410, 96));
 		panel.setLayout(null);
-		
-		// Product Image
+
 		JLabel productImageLabel = new JLabel();
 		productImageLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		productImageLabel.setIcon(new ImageIcon("img/" + item.getProduct().getType() + ".png"));
 		productImageLabel.setBounds(10, 11, 83, 74);
 		panel.add(productImageLabel);
-		
-		// Product Title
+
 		JLabel productTitleLabel = new JLabel(item.getProduct().getName());
 		productTitleLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
 		productTitleLabel.setBounds(103, 23, 142, 21);
 		panel.add(productTitleLabel);
-		
-		// Price
+
 		JLabel priceLabel = new JLabel(String.format(NumberFormat.getCurrencyInstance().format((item.getProduct().getPrice()))));
 		priceLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		priceLabel.setForeground(new Color(0, 51, 204));
 		priceLabel.setBounds(105, 45, 66, 14);
 		panel.add(priceLabel);
-		
-		// Quantity Spinner (1-10 range)
+
 		JSpinner quantitySpinner = new JSpinner(new SpinnerNumberModel(item.getQuantity(), 1, 10, 1));
 		quantitySpinner.setBounds(310, 35, 56, 27);
 		quantitySpinner.addChangeListener(e -> {
 			item.setQuantity((Integer) quantitySpinner.getValue());
 			updateCartDisplay();
 		});
-		
-		// Add a JLabel for "Quantity:"
+
 		JLabel quantityLabel = new JLabel("Quantity:");
 		quantityLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		quantityLabel.setBounds(250, 40, 60, 14);
 		panel.add(quantityLabel);
 		panel.add(quantitySpinner);
-		
-		// Delete Button
+
 		JButton deleteButton = new JButton("");
 		deleteButton.setBackground(new Color(255, 255, 255));
 		deleteButton.setIcon(new ImageIcon("img/trash.png"));

@@ -1,7 +1,5 @@
 package Frame;
 
-import Model.AdminCredentials;
-
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -79,6 +77,7 @@ public class LoginPage extends JFrame{
 				String username = usernameField.getText();
 				String password = String.valueOf(passwordField.getPassword());
 
+				//Check if login is valid
 				if (loginInfoOriginal.containsKey(username)) {
 					if (loginInfoOriginal.get(username).equals(password)) {
 						dispose();
