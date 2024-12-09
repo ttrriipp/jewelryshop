@@ -1,7 +1,5 @@
 package Frame;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -22,8 +20,6 @@ import javax.swing.BoxLayout;
 import javax.swing.SpinnerNumberModel;
 import java.awt.Dimension;
 import java.text.NumberFormat;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ChangeEvent;
 import javax.swing.JScrollPane;
 
 public class CartPage extends JFrame {
@@ -33,22 +29,6 @@ public class CartPage extends JFrame {
 	private static CartStack cartStack = new CartStack();
 	private JPanel cartItemsPanel;
 	private JLabel priceTotalLabel;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CartPage frame = new CartPage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.

@@ -1,7 +1,5 @@
 package Model;
 
-import Model.Product;
-
 public class CartItem {
     private Product product;
     private int quantity;

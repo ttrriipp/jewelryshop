@@ -18,26 +18,8 @@ public class LoginPage extends JFrame{
 	private JPasswordField passwordField;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AdminCredentials adminCredentials = new AdminCredentials();
-					LoginPage frame = new LoginPage(adminCredentials.getLoginInfo());
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
-
 	public LoginPage(HashMap<String, String> loginInfoOriginal) {
 		setForeground(new Color(0, 128, 255));
 		setFont(new Font("Castellar", Font.BOLD, 17));

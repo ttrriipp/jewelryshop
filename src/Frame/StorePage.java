@@ -38,7 +38,6 @@ public class StorePage extends JFrame {
 	private static final int PRODUCTS_PER_PAGE = 6;
 	private JButton previousButton;
 	private JButton nextButton;
-	private int itemIndex;
 	private JButton detailsButton1;
 	private JButton detailsButton_1;
 	private JButton detailsButton_1_1;
@@ -47,22 +46,6 @@ public class StorePage extends JFrame {
 	private JButton detailsButton_2_2;
 
 	LinkedList<Product> products = AdminProduct.getProductList();
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					StorePage frame = new StorePage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
