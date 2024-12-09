@@ -110,5 +110,6 @@ public class ProductDetails extends JFrame {
 		});
 		contentPane.add(addToCartButton);
 		setLocationRelativeTo(null);
+		setResizable(false);
 	}
 }

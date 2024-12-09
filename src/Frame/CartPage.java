@@ -146,6 +146,7 @@ public class CartPage extends JFrame {
 		});
 		summaryPanel.add(checkoutButton);
 		setLocationRelativeTo(null);
+		setResizable(false);
 		
 		updateCartDisplay();
 	}

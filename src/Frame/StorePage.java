@@ -38,11 +38,11 @@ public class StorePage extends JFrame {
 	private JButton previousButton;
 	private JButton nextButton;
 	private JButton detailsButton1;
-	private JButton detailsButton_1;
-	private JButton detailsButton_1_1;
-	private JButton detailsButton_2;
-	private JButton detailsButton_2_1;
-	private JButton detailsButton_2_2;
+	private JButton detailsButton2;
+	private JButton detailsButton3;
+	private JButton detailsButton4;
+	private JButton detailsButton5;
+	private JButton detailsButton6;
 
 	LinkedList<Product> products = AdminProduct.getProductList();
 
@@ -78,6 +78,7 @@ public class StorePage extends JFrame {
 		productPanel1.add(productName1);
 		
 		detailsButton1 = new JButton("More Details");
+		detailsButton1.setFocusable(false);
 		detailsButton1.setForeground(new Color(255, 255, 255));
 		detailsButton1.setBackground(new Color(0, 0, 0));
 		detailsButton1.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -107,12 +108,13 @@ public class StorePage extends JFrame {
 		productName2.setBounds(30, 140, 129, 18);
 		panel_1.add(productName2);
 		
-		detailsButton_1 = new JButton("More Details");
-		detailsButton_1.setForeground(Color.WHITE);
-		detailsButton_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		detailsButton_1.setBackground(Color.BLACK);
-		detailsButton_1.setBounds(10, 163, 173, 23);
-		panel_1.add(detailsButton_1);
+		detailsButton2 = new JButton("More Details");
+		detailsButton2.setFocusable(false);
+		detailsButton2.setForeground(Color.WHITE);
+		detailsButton2.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		detailsButton2.setBackground(Color.BLACK);
+		detailsButton2.setBounds(10, 163, 173, 23);
+		panel_1.add(detailsButton2);
 		
 		JPanel panel_1_1 = new JPanel();
 		panel_1_1.setLayout(null);
@@ -131,12 +133,13 @@ public class StorePage extends JFrame {
 		productName3.setBounds(30, 140, 129, 18);
 		panel_1_1.add(productName3);
 		
-		detailsButton_1_1 = new JButton("More Details");
-		detailsButton_1_1.setForeground(Color.WHITE);
-		detailsButton_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		detailsButton_1_1.setBackground(Color.BLACK);
-		detailsButton_1_1.setBounds(10, 163, 173, 23);
-		panel_1_1.add(detailsButton_1_1);
+		detailsButton3 = new JButton("More Details");
+		detailsButton3.setFocusable(false);
+		detailsButton3.setForeground(Color.WHITE);
+		detailsButton3.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		detailsButton3.setBackground(Color.BLACK);
+		detailsButton3.setBounds(10, 163, 173, 23);
+		panel_1_1.add(detailsButton3);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);
@@ -155,12 +158,13 @@ public class StorePage extends JFrame {
 		productName4.setBounds(30, 140, 129, 18);
 		panel_2.add(productName4);
 		
-		detailsButton_2 = new JButton("More Details");
-		detailsButton_2.setForeground(Color.WHITE);
-		detailsButton_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		detailsButton_2.setBackground(Color.BLACK);
-		detailsButton_2.setBounds(10, 163, 173, 23);
-		panel_2.add(detailsButton_2);
+		detailsButton4 = new JButton("More Details");
+		detailsButton4.setFocusable(false);
+		detailsButton4.setForeground(Color.WHITE);
+		detailsButton4.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		detailsButton4.setBackground(Color.BLACK);
+		detailsButton4.setBounds(10, 163, 173, 23);
+		panel_2.add(detailsButton4);
 		
 		JPanel panel_2_1 = new JPanel();
 		panel_2_1.setLayout(null);
@@ -179,13 +183,13 @@ public class StorePage extends JFrame {
 		productName5.setBounds(30, 140, 129, 18);
 		panel_2_1.add(productName5);
 		
-		detailsButton_2_1 = new JButton("More Details");
-
-		detailsButton_2_1.setForeground(Color.WHITE);
-		detailsButton_2_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		detailsButton_2_1.setBackground(Color.BLACK);
-		detailsButton_2_1.setBounds(10, 163, 173, 23);
-		panel_2_1.add(detailsButton_2_1);
+		detailsButton5 = new JButton("More Details");
+		detailsButton5.setFocusable(false);
+		detailsButton5.setForeground(Color.WHITE);
+		detailsButton5.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		detailsButton5.setBackground(Color.BLACK);
+		detailsButton5.setBounds(10, 163, 173, 23);
+		panel_2_1.add(detailsButton5);
 		
 		JPanel panel_2_2 = new JPanel();
 		panel_2_2.setLayout(null);
@@ -204,12 +208,13 @@ public class StorePage extends JFrame {
 		productName6.setBounds(30, 140, 129, 18);
 		panel_2_2.add(productName6);
 		
-		detailsButton_2_2 = new JButton("More Details");
-		detailsButton_2_2.setForeground(Color.WHITE);
-		detailsButton_2_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		detailsButton_2_2.setBackground(Color.BLACK);
-		detailsButton_2_2.setBounds(10, 163, 173, 23);
-		panel_2_2.add(detailsButton_2_2);
+		detailsButton6 = new JButton("More Details");
+		detailsButton6.setFocusable(false);
+		detailsButton6.setForeground(Color.WHITE);
+		detailsButton6.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		detailsButton6.setBackground(Color.BLACK);
+		detailsButton6.setBounds(10, 163, 173, 23);
+		panel_2_2.add(detailsButton6);
 		
 		JButton lblNewLabel_5 = new JButton("");
 		lblNewLabel_5.addActionListener(new ActionListener() {
@@ -238,8 +243,8 @@ public class StorePage extends JFrame {
 		});
 		btnReturnLogin.setBackground(new Color(255, 153, 102));
 		btnReturnLogin.setBounds(520, 11, 130, 30);
+		btnReturnLogin.setFocusable(false);
 		contentPane.add(btnReturnLogin);
-
 		previousButton = new JButton("Previous");
 		previousButton.setBounds(23, 480, 100, 30);
 		previousButton.setEnabled(false); // Disabled initially
@@ -281,20 +286,20 @@ public class StorePage extends JFrame {
 		for (ActionListener al : detailsButton1.getActionListeners()) {
 			detailsButton1.removeActionListener(al);
 		}
-		for (ActionListener al : detailsButton_1.getActionListeners()) {
-			detailsButton_1.removeActionListener(al);
+		for (ActionListener al : detailsButton2.getActionListeners()) {
+			detailsButton2.removeActionListener(al);
 		}
-		for (ActionListener al : detailsButton_1_1.getActionListeners()) {
-			detailsButton_1_1.removeActionListener(al);
+		for (ActionListener al : detailsButton3.getActionListeners()) {
+			detailsButton3.removeActionListener(al);
 		}
-		for (ActionListener al : detailsButton_2.getActionListeners()) {
-			detailsButton_2.removeActionListener(al);
+		for (ActionListener al : detailsButton4.getActionListeners()) {
+			detailsButton4.removeActionListener(al);
 		}
-		for (ActionListener al : detailsButton_2_1.getActionListeners()) {
-			detailsButton_2_1.removeActionListener(al);
+		for (ActionListener al : detailsButton5.getActionListeners()) {
+			detailsButton5.removeActionListener(al);
 		}
-		for (ActionListener al : detailsButton_2_2.getActionListeners()) {
-			detailsButton_2_2.removeActionListener(al);
+		for (ActionListener al : detailsButton6.getActionListeners()) {
+			detailsButton6.removeActionListener(al);
 		}
 
 		// Calculate start and end indices for current page
@@ -349,7 +354,7 @@ public class StorePage extends JFrame {
 						break;
 					case 1:
 						productName2.setText(product.getName());
-						detailsButton_1.addActionListener(new ActionListener() {
+						detailsButton2.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
 								dispose();
@@ -364,7 +369,7 @@ public class StorePage extends JFrame {
 						break;
 					case 2:
 						productName3.setText(product.getName());
-						detailsButton_1_1.addActionListener(new ActionListener() {
+						detailsButton3.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
 								dispose();
@@ -379,7 +384,7 @@ public class StorePage extends JFrame {
 						break;
 					case 3:
 						productName4.setText(product.getName());
-						detailsButton_2.addActionListener(new ActionListener() {
+						detailsButton4.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
 								dispose();
@@ -394,7 +399,7 @@ public class StorePage extends JFrame {
 						break;
 					case 4:
 						productName5.setText(product.getName());
-						detailsButton_2_1.addActionListener(new ActionListener() {
+						detailsButton5.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
 								dispose();
@@ -409,7 +414,7 @@ public class StorePage extends JFrame {
 						break;
 					case 5:
 						productName6.setText(product.getName());
-						detailsButton_2_2.addActionListener(new ActionListener() {
+						detailsButton6.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
 								dispose();
