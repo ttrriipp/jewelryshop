@@ -38,13 +38,6 @@ public class CartStack {
         return null;
     }
     
-    public CartItem peek() {
-        if (!isEmpty()) {
-            return items[top];
-        }
-        return null;
-    }
-    
     public boolean isEmpty() {
         return top == -1;
     }
@@ -54,8 +47,5 @@ public class CartStack {
         System.arraycopy(items, 0, result, 0, top + 1);
         return result;
     }
-    
-    public void clear() {
-        top = -1;
-    }
+
 } 

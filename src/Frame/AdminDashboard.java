@@ -2,8 +2,6 @@ package Frame;
 
 import Model.AdminCredentials;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -15,7 +13,6 @@ import java.awt.Color;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.util.HashMap;
 
 public class AdminDashboard extends JFrame {
 
@@ -23,22 +20,6 @@ public class AdminDashboard extends JFrame {
 	private JPanel contentPane;
 	private JTextField usernameField;
 	private JTextField passwordField;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AdminDashboard frame = new AdminDashboard("admin1", "adminpass1");
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.

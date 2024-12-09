@@ -1,7 +1,5 @@
 package Frame;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -22,9 +20,8 @@ import javax.swing.BoxLayout;
 import javax.swing.SpinnerNumberModel;
 import java.awt.Dimension;
 import java.text.NumberFormat;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ChangeEvent;
 import javax.swing.JScrollPane;
+import javax.swing.JOptionPane;
 
 public class CartPage extends JFrame {
 
@@ -33,22 +30,6 @@ public class CartPage extends JFrame {
 	private static CartStack cartStack = new CartStack();
 	private JPanel cartItemsPanel;
 	private JLabel priceTotalLabel;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CartPage frame = new CartPage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -133,6 +114,36 @@ public class CartPage extends JFrame {
 		checkoutButton.setForeground(new Color(255, 255, 255));
 		checkoutButton.setBackground(new Color(0, 0, 0));
 		checkoutButton.setBounds(10, 145, 225, 31);
+		checkoutButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//Check the cart if empty or not
+				if (cartStack.isEmpty()) {
+					JOptionPane.showMessageDialog(null, 
+						"Your cart is empty!", 
+						"Empty Cart", 
+						JOptionPane.WARNING_MESSAGE);
+				} else {
+					int choice = JOptionPane.showConfirmDialog(null,
+						"Do you want to proceed with checkout?",
+						"Checkout Confirmation",
+						JOptionPane.YES_NO_OPTION);
+						
+					if (choice == JOptionPane.YES_OPTION) {
+						JOptionPane.showMessageDialog(null,
+							"Thank you for your purchase!\nYour order has been placed successfully.",
+							"Order Confirmation",
+							JOptionPane.INFORMATION_MESSAGE);
+							
+						// Clear the cart after successful checkout
+						while (!cartStack.isEmpty()) {
+							cartStack.pop();
+						}
+						updateCartDisplay();
+					}
+				}
+			}
+		});
 		summaryPanel.add(checkoutButton);
 		setLocationRelativeTo(null);
 		
@@ -160,6 +171,7 @@ public class CartPage extends JFrame {
 		cartItemsPanel.repaint();
 	}
 
+	//For adding products
 	private JPanel createProductPanel(CartItem item) {
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
@@ -167,43 +179,37 @@ public class CartPage extends JFrame {
 		panel.setMaximumSize(new Dimension(410, 96));
 		panel.setMinimumSize(new Dimension(410, 96));
 		panel.setLayout(null);
-		
-		// Product Image
+
 		JLabel productImageLabel = new JLabel();
 		productImageLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		productImageLabel.setIcon(new ImageIcon("img/" + item.getProduct().getType() + ".png"));
 		productImageLabel.setBounds(10, 11, 83, 74);
 		panel.add(productImageLabel);
-		
-		// Product Title
+
 		JLabel productTitleLabel = new JLabel(item.getProduct().getName());
 		productTitleLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
 		productTitleLabel.setBounds(103, 23, 142, 21);
 		panel.add(productTitleLabel);
-		
-		// Price
+
 		JLabel priceLabel = new JLabel(String.format(NumberFormat.getCurrencyInstance().format((item.getProduct().getPrice()))));
 		priceLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		priceLabel.setForeground(new Color(0, 51, 204));
 		priceLabel.setBounds(105, 45, 66, 14);
 		panel.add(priceLabel);
-		
-		// Quantity Spinner (1-10 range)
+
 		JSpinner quantitySpinner = new JSpinner(new SpinnerNumberModel(item.getQuantity(), 1, 10, 1));
 		quantitySpinner.setBounds(310, 35, 56, 27);
 		quantitySpinner.addChangeListener(e -> {
 			item.setQuantity((Integer) quantitySpinner.getValue());
 			updateCartDisplay();
 		});
-		
-		// Add a JLabel for "Quantity:"
+
 		JLabel quantityLabel = new JLabel("Quantity:");
 		quantityLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		quantityLabel.setBounds(250, 40, 60, 14);
 		panel.add(quantityLabel);
 		panel.add(quantitySpinner);
-		
-		// Delete Button
+
 		JButton deleteButton = new JButton("");
 		deleteButton.setBackground(new Color(255, 255, 255));
 		deleteButton.setIcon(new ImageIcon("img/trash.png"));
