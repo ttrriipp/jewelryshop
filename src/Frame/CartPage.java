@@ -21,6 +21,7 @@ import javax.swing.SpinnerNumberModel;
 import java.awt.Dimension;
 import java.text.NumberFormat;
 import javax.swing.JScrollPane;
+import javax.swing.JOptionPane;
 
 public class CartPage extends JFrame {
 
@@ -113,6 +114,35 @@ public class CartPage extends JFrame {
 		checkoutButton.setForeground(new Color(255, 255, 255));
 		checkoutButton.setBackground(new Color(0, 0, 0));
 		checkoutButton.setBounds(10, 145, 225, 31);
+		checkoutButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (cartStack.isEmpty()) {
+					JOptionPane.showMessageDialog(null, 
+						"Your cart is empty!", 
+						"Empty Cart", 
+						JOptionPane.WARNING_MESSAGE);
+				} else {
+					int choice = JOptionPane.showConfirmDialog(null,
+						"Do you want to proceed with checkout?",
+						"Checkout Confirmation",
+						JOptionPane.YES_NO_OPTION);
+						
+					if (choice == JOptionPane.YES_OPTION) {
+						JOptionPane.showMessageDialog(null,
+							"Thank you for your purchase!\nYour order has been placed successfully.",
+							"Order Confirmation",
+							JOptionPane.INFORMATION_MESSAGE);
+							
+						// Clear the cart after successful checkout
+						while (!cartStack.isEmpty()) {
+							cartStack.pop();
+						}
+						updateCartDisplay();
+					}
+				}
+			}
+		});
 		summaryPanel.add(checkoutButton);
 		setLocationRelativeTo(null);
 		
