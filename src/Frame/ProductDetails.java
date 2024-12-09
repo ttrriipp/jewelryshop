@@ -15,6 +15,7 @@ import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
+import javax.swing.SwingConstants;
 
 public class ProductDetails extends JFrame {
 
@@ -36,6 +37,7 @@ public class ProductDetails extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel productImageLabel = new JLabel("");
+		productImageLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		productImageLabel.setIcon(new ImageIcon(imagePath));
 		productImageLabel.setBounds(25, 113, 434, 310);
 		contentPane.add(productImageLabel);

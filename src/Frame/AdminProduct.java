@@ -19,11 +19,11 @@ public class AdminProduct extends JFrame {
     // Initialize default products
 	static {
 		productList.add(new Product("Silver Necklace", 299.99, "Type: Necklace \nElegant silver necklace with pendant", "Necklace"));
-		productList.add(new Product("Gold Ring", 399.99, "Type: Ring \nClassic gold wedding band", "Ring"));
+		productList.add(new Product("Silver Ring", 399.99, "Type: Ring \nClassic gold wedding band", "Ring"));
 		productList.add(new Product("Pearl Bracelet", 249.99, "Type: Bracelet\nFreshwater pearl bracelet with silver clasp", "Bracelet"));
-		productList.add(new Product("Diamond Earrings", 599.99, "Type: Earrings \nSparkling diamond stud earrings", "Earrings"));
-		productList.add(new Product("Rose Gold Anklet", 149.99, "Type: Anklet \nDelicate rose gold chain anklet", "Anklet"));
-		productList.add(new Product("Gold Necklace", 499.99, "Type: Necklace \n18k gold chain necklace", "Necklace"));
+		productList.add(new Product("Round Earrings", 599.99, "Type: Earrings \nRound stud earrings", "Earrings"));
+		productList.add(new Product("Silver Diamond Anklet", 149.99, "Type: Anklet \nDelicate Silver Diamond chain anklet", "Anklet"));
+		productList.add(new Product("Silver Star Necklace", 499.99, "Type: Necklace \nClassic silver star necklace", "Necklace"));
 	}
 
 	/**
