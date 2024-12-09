@@ -78,18 +78,17 @@ public class LoginPage extends JFrame{
 				String password = String.valueOf(passwordField.getPassword());
 
 				//Check if login is valid
-				if (loginInfoOriginal.containsKey(username)) {
-					if (loginInfoOriginal.get(username).equals(password)) {
+				if (username.isEmpty() || password.isEmpty())
+					JOptionPane.showMessageDialog(null, "Please input all fields!", "Blank Fields", JOptionPane.INFORMATION_MESSAGE);
+				else if (!loginInfoOriginal.containsKey(username))
+					JOptionPane.showMessageDialog(null, "Wrong Username!", "Wrong Username", JOptionPane.ERROR_MESSAGE);
+				else if (!loginInfoOriginal.get(username).equals(password))
+					JOptionPane.showMessageDialog(null, "Wrong Password!", "Wrong Password", JOptionPane.ERROR_MESSAGE);
+				else if (loginInfoOriginal.containsKey(username) && loginInfoOriginal.get(username).equals(password)) {
 						dispose();
 						AdminDashboard adminDashboard = new AdminDashboard(username, password);
 						adminDashboard.setVisible(true);
-					} else if (!password.isEmpty() & !loginInfoOriginal.get(username).equals(password))
-						JOptionPane.showMessageDialog(null, "Wrong Password!", "Wrong Password", JOptionPane.ERROR_MESSAGE);
-				} else if (!username.isEmpty() & !loginInfoOriginal.containsKey(username) & !password.isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Wrong Username!", "Wrong Username", JOptionPane.ERROR_MESSAGE);
 				}
-				if (username.isEmpty() || password.isEmpty())
-					JOptionPane.showMessageDialog(null, "Please input all fields!", "Blank Fields", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		loginButton.setForeground(new Color(255, 255, 255));
